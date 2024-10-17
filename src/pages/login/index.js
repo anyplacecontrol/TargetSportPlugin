@@ -14,7 +14,8 @@ import * as uiActions from '../../redux/modules/ui'
 export const Login = () => {
   const dispatch = useDispatch()
   const onLoginClick = () => {
-    dispatch(uiActions.showBackdrop(true))
+    //dispatch(uiActtions.showBackdrop(true))
+    dispatch(uiActions.showAlert('Success', 'Cache was cleared'))
   }
 
   const keyboardEmail = useKeyboard()

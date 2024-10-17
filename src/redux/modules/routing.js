@@ -1,7 +1,7 @@
 import * as c from '../../const'
 import * as u from '../../utils'
 import {push} from 'connected-react-router'
-import {BaseReducer} from './baseRedux'
+import {BaseReducer} from '../../shared/redux/baseRedux'
 
 const ROUTING_PREFIX = 'routing'
 const RESET_STATE = ROUTING_PREFIX + '/RESET_STATE'
