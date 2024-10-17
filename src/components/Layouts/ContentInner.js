@@ -5,7 +5,7 @@ import {createClass} from '../../shared/utils/sharedFunctions'
 export const ContentInner = ({className: cls, style, children}) => {
   return (
     <div
-      className={createClass(`content-inner`, {}, cls)}
+      className={createClass(`content-inner pad-v-2 gap-v-std`, {}, cls)}
       style={style}
     >
       {children}
