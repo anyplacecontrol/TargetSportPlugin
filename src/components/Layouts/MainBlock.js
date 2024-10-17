@@ -5,7 +5,7 @@ import * as u from '../../shared/utils/sharedFunctions'
 export const MainBlock = ({className: cls, style, children}) => {
   return (
     <div
-      className={u.createClass(`col-sta-str gap-std`, {} , cls)}
+      className={u.createClass(`col-sta-str gap-v-std`, {}, cls)}
       style={style}
     >
       {children}
