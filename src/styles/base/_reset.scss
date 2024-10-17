@@ -1,0 +1,288 @@
+@use 'sass:math';
+@use '../utils' as u;
+
+:root {
+  --def-col-black:          #000000;
+  --def-col-white:          #FFFFFF;
+  --def-col-warning:        #FFFF00;
+  --def-col-error:          #BA3E46;
+  --def-col-success:        #47A838;
+
+  // Project Theme
+  --col-overlay:            rgba(38, 50, 66, 0.95);
+  --col-overlay-secondary:  rgba(38, 50, 66, 0.5);
+  --col-primary:            #2D3D57;
+  --col-secondary:          #212E44;
+  --col-accent-light:       #DDD8BE;
+  --col-accent:             #B0A27A;
+  --col-accent-dark:        #7D7053;
+  --col-pale:               #99A9B8;
+  --col-faded:              #CCCCCC;
+  --col-light:              #ECEADF;
+
+  // Borders
+  --rad-std-half:           #{math.div($radius, 2)};
+  --rad-std:                #{$radius};
+  --rad-std-x2:             #{$radius * 2};
+  --rad-std-x3:             #{$radius * 3};
+  --rad-std-x4:             #{$radius * 4};
+
+  // Typography
+  --ff-plain-text:          #{u.$font-plain-text}, 'Helvetica', 'Arial', sans-serif;
+  --ff-titles:              #{u.$font-titles};
+
+  --f-wei-regular:          400;
+  --f-wei-medium:           500;
+  --f-wei-bold:             700;
+
+  // Layout
+  --max-width:              1080px;
+  --min-width:              320px;
+
+  // Z-index
+  --z-ind-background:       -100;
+  --z-ind-backward:         -1;
+  --z-ind-select:           50;
+  --z-ind-tooltip:          75;
+  --z-ind-high:             100;
+  --z-ind-overlay:          500;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  @extend .bg-white;
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  @extend .fg-black;
+  font-weight: var(--f-wei-medium);
+  font-size: 14px;
+  line-height: 1;
+  font-family: var(--ff-plain-text);
+  @extend .miw-content;
+  @extend .full-sz;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block;
+}
+
+audio, canvas, progress, video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-style: normal;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  line-height: 1em;
+}
+
+img {
+  border: 0;
+  outline: none;
+}
+
+dfn {
+  font-style: italic;
+}
+
+mark {
+  background-color: var(--def-col-warning);
+  color: var(--def-col-black);
+}
+
+small {
+  font-size: .75em;
+}
+
+sub,
+sup {
+  vertical-align: baseline;
+
+  font-size: 75%;
+  line-height: 0;
+
+  position: relative;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+q:before,
+q:after {
+  content: '';
+}
+
+hr {
+  height: 0;
+}
+
+code, kbd, pre, samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+iframe, abbr, acronym {
+  border: 0;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+pre {
+  overflow: auto;
+}
+
+figure {
+  margin: 1em 40px;
+}
+
+em, i {
+  font-style: italic;
+}
+
+b, strong, optgroup {
+  font-weight: 700;
+}
+
+fieldset {
+  border: 1px solid silver;
+
+  margin: 0 2px;
+  padding: .35em .625em .75em;
+}
+
+legend {
+  border: 0;
+}
+
+button, input, optgroup, select, textarea {
+  color: inherit;
+
+  font: inherit;
+}
+
+button {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+input, input:focus, button, textarea, a:focus {
+  border: 0;
+  outline: none;
+}
+
+input::-webkit-input-placeholder ,
+input:-moz-placeholder ,
+textarea::-webkit-input-placeholder ,
+textarea:-moz-placeholder {
+  color: var(--col-faded);
+}
+
+input {
+  line-height: normal;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  box-sizing: border-box;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+
+input[type='search'] {
+  -webkit-appearance: textfield;
+}
+
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+button,
+input[type='button'], input[type='reset'], input[type='submit'] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled], input[disabled] {
+  cursor: default;
+}
+
+* {@include disabled {@extend .cur-not, .opacity-0x5}}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+}
+
+input:invalid {
+  box-shadow: none;
+}
+
+textarea {
+  overflow: auto;
+  resize: none;
+}
+
+a {
+  color: #28ACFF;
+
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th {
+  text-align: left;
+}
+
+td, th {
+}
+
+ul, ol {
+  list-style: none;
+}
+
+[hidden], template {display: none}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+::selection {
+  background-color: transparent;
+  color: inherit;
+}

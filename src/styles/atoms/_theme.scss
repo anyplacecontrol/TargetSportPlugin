@@ -1,0 +1,140 @@
+// Background
+%bg-transparent,
+.bg-transparent       {background-color: transparent}
+%bg-current-color,
+.bg-current-color     {background-color: currentColor}
+%bg-black,
+.bg-black             {background-color: var(--def-col-black)}
+%bg-white,
+.bg-white             {background-color: var(--def-col-white)}
+%bg-error,
+.bg-error             {background-color: var(--def-col-error)}
+%bg-error-light,
+.bg-error-light       {background-color: #DF7D83}
+%bg-success,
+.bg-success           {background-color: var(--def-col-success)}
+%bg-success-light,
+.bg-success-light     {background-color: #81D175}
+%bg-overlay,
+.bg-overlay           {background-color: var(--col-overlay)}
+%bg-overlay-secondary,
+.bg-overlay-secondary {background-color: var(--col-overlay-secondary)}
+
+// Bg - Rework
+%dark-blue,
+.dark-blue            {background-color: var(--col-primary)}
+%dark-blue-2,
+.dark-blue-2          {background-color: var(--col-secondary)}
+
+//Foreground
+%fg-black,
+.fg-black             {color: var(--def-col-black)}
+%fg-white,
+.fg-white             {color: var(--def-col-white)}
+%fg-error,
+.fg-error             {color: var(--def-col-error)}
+%fg-primary,
+.fg-primary           {color: var(--col-secondary)}
+%fg-pale,
+.fg-pale              {color: var(--col-pale)}
+
+.cover-bg,
+%cover-bg {
+  background-color: rgba(0, 0, 0, 0.05);
+  @extend %abs-fit;
+}
+
+// Shadows
+$shad-std:    rgba(0, 0, 0, 0.18);
+$shad-std-x2: rgba(0, 0, 0, 0.36);
+
+.shad-inset,  %shad-inset  {box-shadow: inset 0 4px 4px $shad-std}
+.shad-light,  %shad-light  {box-shadow: 0 0 5px $shad-std}
+.shad-small,  %shad-small  {box-shadow: 2px 2px 5px $shad-std}
+.shad-card,   %shad-card   {box-shadow: 0 10px 3px $shad-std}
+.shad-medium, %shad-medium {box-shadow: 0 3px 10px $shad-std}
+.shad-active, %shad-active {box-shadow: 0 3px 10px $shad-std-x2}
+.shad-large,  %shad-large  {box-shadow: 10px 20px 44px rgba(0, 0, 0, 0.3)}
+.shad-none,   %shad-none   {box-shadow: none}
+
+// Buttons
+.btn-core, %btn-core {
+  @extend %row-cen-cen, %bg-transparent, %round-std-x2, %cur-point, %text-center;
+  @include pad-v(0.25);
+  @include pad-h(1.5);
+
+  &:not(.--tiny) {@extend %font-36}
+
+  &.--tiny      {@extend %font-22;@include h-vh(2.5)}
+  &.--standard  {@include h-vh(4.6)}
+  &.--big       {@include h-vh(6.67)}
+}
+.btn-with-border, %btn-with-border {@extend %btn-core, %brd-transparent-1}
+%btn-with-icon,
+.btn-with-icon {
+  @extend %row-sta-cen, %bg-transparent, %fg-white, %gap-h-2;
+  .feather {@include sqr(3.75)}
+}
+
+.--vertical-buttons {
+  > * {
+    @extend %w-full;
+    max-width: 60vw;
+
+    &:not(:first-child):not(:only-child) {margin-top: 3.25vh}
+  }
+}
+.--cart-buttons {@extend %abs-l, %z-index-1;bottom: 8.75rem}
+
+// Link
+.--link {
+  @extend %cur-point;
+  text-decoration: underline;
+}
+
+// Scroll Customization
+@mixin scrollCore($width-or-height) {
+  -webkit-overflow-scrolling: touch;
+
+  /* width or height */
+  &::-webkit-scrollbar {
+    #{$width-or-height}: 8px;
+  }
+  /* Track */
+  &::-webkit-scrollbar-track {
+    @extend %bg-white, %round-to-content;
+  }
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    @extend %round-to-content;
+    background-color: #B5C5D4;
+
+    @include hover {background-color: var(--col-primary)}
+  }
+}
+.vertical-scroll,   %vertical-scroll   {@include scrollCore('width')}
+.horizontal-scroll, %horizontal-scroll {@include scrollCore('height')}
+
+@include media-handicapped {
+  %btn-core,
+  .btn-core {
+    @include pad-h(1.5);
+    &.--tiny      {@include h-vh(2)}
+    &.--standard  {@include h-vh(2.75)}
+    &.--big       {@include h-vh(4.5)}
+  }
+  %btn-with-icon,
+  .btn-with-icon {.feather {@include sqr(2.5)}}
+  .--vertical-buttons {> * {max-width: 35vw !important}}
+  .--cart-buttons {bottom: 5.75rem}
+}
+@include media-small-tablet {
+  %btn-core,
+  .btn-core {
+    @include pad-h(1);
+    &.--tiny      {@include h(3)}
+    &.--standard  {@include h(3)}
+    &.--big       {@include h(3)}
+  }
+  .--vertical-buttons {> * {max-width: 260px !important}}
+}

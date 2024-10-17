@@ -1,0 +1,116 @@
+.order {
+  width: 100%;
+  max-height: 100%;
+  min-height: 50%;
+  height: auto;
+  
+  &.long-list-of-products {
+    max-height: 100%;
+  }
+}
+.order__body {
+  @extend .bg-white, .relative, .w-full;
+  border-radius: 0 0 10px 10px;
+  max-height: calc(100% - 100px);
+  @include pad-t(1.25);
+  @include pad-h(1.25);
+  @include pad-b(12.5);
+}
+.order__body--inner {
+  @extend .full-sz, .over-y-auto;
+  overflow-x: hidden;
+
+}
+.order__title {
+  border-radius: 10px 10px 0 0;
+  @extend .font-40;
+  line-height: 1.2;
+  width: 100%;
+  height: 100px;
+  padding-right: 5px;
+  align-items: center;
+  justify-content: center;
+}
+.order__total {
+  border-bottom: solid 1px var(--col-pale);
+  font-size: 30px;
+  line-height: 1;
+  @include pad-r(0.25);
+  padding-bottom: 20px;
+  align-items: center;
+  justify-content: space-between;
+
+  &--title {text-transform: uppercase}
+
+  &--summ {
+    @extend .wei-bold;
+  }
+}
+.order__items {
+  @extend .w-full;
+  @include pad-r(0.25);
+}
+.order__item {
+  border-bottom: solid 1px var(--col-pale);
+  padding: 20px 5px 20px 0;
+}
+.order__item--top {
+  width: 100%;
+  align-items: flex-start;
+
+  > * {position: relative}
+}
+.order__item--title {
+  @extend .font-24, .line-h-1x2, .ow-word, .trans-cap, .z-index-1, .w-full;
+  @include pad-r(6);
+}
+.order__item--bottom {
+  min-height: 30px;
+  padding-right: 102px;
+  position: relative;
+
+  > * {margin-top: 10px}
+}
+.order__item--info {
+  font-size: 22px;
+  line-height: 1.2;
+  @extend .wei-regular;
+  padding-top: 2px;
+}
+.order__item--price {
+  font-size: 25px;
+  line-height: 1.2;
+  @extend .wei-bold;
+  text-align: right;
+
+  width: 102px;
+
+  top: 0;
+  right: 0;
+
+  position: absolute;
+  z-index: 1;
+}
+.order__buttons {
+  @extend .abs-b-l, .z-index-1, .w-full, .gap-v-1;
+  @include pad-h(1.25);
+  @include pad-b(1.25);
+}
+
+@include media-handicapped {
+  .order__title {
+    font-size: 32px;
+    height: 60px;
+  }
+  .order__body {
+    height: calc(100% - 60px);
+    padding-bottom: 180px;
+  }
+  .order__total {
+    font-size: 24px;
+    padding-bottom: 10px;
+  }
+  .order__item {padding-bottom: 10px}
+  .order__item--info,
+  .order__item--price {font-size: 20px}
+}

@@ -1,0 +1,50 @@
+.slick-slider {
+  @extend %relative, %w-full, %show;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+  @extend %relative, %over-hidden, %show;
+  @include pad(0);
+  @include mar(0);
+  @include focus {outline: none}
+  
+  &.dragging {@extend %cur-point, %cur-hand}
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+  @extend %relative, %show, %cen-by-mar;
+  left: 0;
+  top: 0;
+
+  @include before-after {display: table}
+  @include after        {clear: both}
+
+  .slick-loading & {@extend %vis-hidden}
+}
+
+.slick-slide {
+  @extend %h-100p, %hidden;
+  float: left;
+  min-height: 1px;
+
+  [dir='rtl'] & {float: right}
+
+  img {@extend %show}
+  &.slick-loading img {@extend %hidden}
+  &.dragging img {pointer-events: none}
+
+  .slick-initialized &  {@extend %show}
+  .slick-loading &      {@extend %vis-hidden}
+  .slick-vertical &     {@extend %show, %h-auto, %brd-transparent-1}
+}
+
+.slick-arrow.slick-hidden {@extend %hidden}

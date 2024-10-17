@@ -1,0 +1,208 @@
+@use '../utils' as u;
+
+.react-reveal {@extend %maw-content, %w-full, %cen-by-mar}
+
+#modals       {@extend %vertical-scroll, %over-x-hidden, %over-y-auto, %fix-b, %fix-center-x, %z-index-high, %full-sz}
+.modals-inner {@extend %relative, %w-full, %mih-100vh}
+.modals-bg    {@extend %full-sz, %abs-b-l, %z-index-backward}
+.modals-body  {@extend %w-full, %mih-100vh}
+.modals-box   {
+  @extend  %maw-content, %w-full, %content-pad-h;
+  @include u.pad-v(1);
+}
+
+.modal {
+  @extend %round-std, %maw-content, %relative, %w-full, %cen-by-mar;
+  @include u.pad(2.5);
+
+  &:not(.--with-out-cancel) {@include u.mar-t(6.5)}
+
+  @include u.med-t-xl {@include u.pad-h(2)}
+
+  .product-image-box {
+    @include u.sqr(25);
+
+    &.--sold-out {@extend %opacity-0x5}
+  }
+}
+.modal-body {
+  @extend %w-full, %gap-v-std;
+  
+  &.--new-type {
+    .modal-attr-button {@include u.mih(6.5)}
+  }
+  
+  &.--std {@extend %relative}
+  
+  &.--alert {
+    @extend %text-center;
+
+    .modal-info {@extend %col-sta-cen}
+  }
+}
+.modal-title-box {@extend %col-sta-cen, %text-center, %w-full, %gap-v-2}
+.modal-title {@extend %trans-cap, .--no-mar-t, %w-full}
+.modal-sub-title-box {@extend %row-bet-cen, %w-full, %gap-h-1}
+.modal-sub-title {@extend %font-36, %line-h-1x2, %wei-bold}
+
+%modal-info-typography {
+  @extend %font-h4, %line-h-1x3, %text-center, %wei-regular, %ow-word;
+  
+  &.--is-long-error {@extend %wb-all}
+}
+
+.modal-info {@extend %col-sta-sta, %w-full, %gap-v-2}
+.modal-info-scroll {
+  @extend %col-sta-sta, %w-full, %gap-v-1;
+  
+  &.--std {}
+  &.--with-scroll {
+    @extend %vertical-scroll, %over-y-auto;
+    @include u.mah-vh(20);
+  }
+}
+.modal-info-item {@extend %col-sta-sta, %w-full, %gap-v-1}
+
+@mixin modal-info-width($val: 3.25) {width: calc(100vw - #{$val}rem * 4)}
+@mixin modal-info-width-h($val: 1.25) {width: calc(66vw - #{$val}rem * 4)}
+
+.modal-alert-info {
+  @extend %col-sta-cen, %w-full, %gap-v-2, %modal-info-typography;
+
+  @include modal-info-width;
+  @include u.med-t-xl {@include modal-info-width(2.5)}
+  @include u.med-t-lg {@include modal-info-width(2)}
+}
+
+.modal-button {@extend %w-full}
+.modal-error {@extend %fg-error, %font-38}
+
+.modal-content-scroll {
+  @extend %over-y-auto, %vertical-scroll, %w-full;
+  @include u.mah-vh(80);
+  @include u.mih-vh(40);
+  @include u.pad-b(1);
+}
+.modal-content-scroll-inner {
+  @extend %col-sta-cen, %w-full, %gap-v-2;
+  
+  .product-image-box {@extend %maw-col-6}
+}
+.modal-content-main {@extend %col-sta-cen, %gap-v-0x5}
+
+.modal-content {
+  @extend %row-sta-str, %w-full;
+  @include u.gap-h(1.5);
+}
+.modal-content-box {@extend %col-sta-sta, %w-full, %gap-v-0x5}
+.modal-content-box-children {@extend %col-sta-sta, %w-full}
+.modal-content-item {
+  @include u.gap-v(2);
+  
+  &.--std {@extend %col-sta-sta, %w-full}
+  &.--info {@include u.maw-col(5.25);@include u.miw-col(5.25)}
+  
+  &.--start {@extend %col-sta-sta}
+  &.--between {@extend %col-bet-sta}
+  &.--end {@extend %col-end-sta}
+}
+.modal-description {@extend %col-sta-sta, %w-full, %gap-v-1}
+.modal-description-text {
+  @extend %ff-custom, %font-24, %line-h-1x3;
+
+  &.--scroll {
+    @extend  %vertical-scroll, %over-y-auto;
+    max-height: 8vh;
+  }
+}
+
+.modal-attr-buttons-parent {@extend %w-full}
+.modal-attr-buttons {
+  @extend %grid-core;
+  @include u.grid(3, 16);
+}
+.modal-attr-button {
+  @extend %bg-white, %round-std, %shad-small, %opacity-0x5;
+  @include u.mih(3.5);
+  @include u.pad(0.25);
+  @include u.gap(0.75);
+
+  &.--enabled {@extend %opacity-1}
+  &.--std {}
+  &.--new {@extend %brd-transparent-2, %wei-regular}
+}
+.modal-attr-button-title {@extend %blk, %font-24, %wei-bold, %line-h-1, %text-center, %ow-word, %w-full}
+.modal-attr-button-sub-text {
+  @extend %blk, %font-16, %line-h-1, %text-center, %ow-word, %w-full;
+  @include u.gap(0.25);
+}
+
+.modal-quantity {
+  &.--std {@extend %row-bet-cen, %w-full}
+  &.--new {@extend %col-sta-cen, %gap-v-1}
+}
+.modal-availability {@extend %row-cen-cen, %font-24, %gap-h-0x5}
+.modal-available {@extend %col-sta-end, %text-right, %font-24, %line-h-1x2}
+.modal-available-title {}
+.modal-available-count {}
+
+.modal-input-text,
+.modal-input-text-area {@extend %form-input, %fg-pale, %round-std-x3, %shad-inset}
+.modal-input-text-area {
+  height: 120px;
+  padding: 10px;
+}
+
+.btn-toggle {
+  @extend %col-cen-cen, %bg-transparent, %circle, %anim;
+  @include u.sqr(2.5);
+  
+  .feather {@extend %img-size-std}
+}
+
+@include u.media-handicapped {
+  .modal {
+    &:not(.--with-out-cancel) {@include u.mar-t(4)}
+    @include u.pad(1.5);
+
+    .product-image-box {@include u.sqr(16)}
+  }
+
+  .modal-available {font-size: 16px}
+
+  .modal-input-text,
+  .modal-input-text-area {
+    font-size: 22px;
+    height: 60px;
+    margin-top: 30px;
+    padding: 0 15px;
+  }
+
+  .modal-body {
+    &:not(.form-info) {@include u.gap-v(1.5)}
+  }
+  .modal-content-item {
+    &.--info {
+      @include u.maw-col(4);
+      @include u.miw-col(4);
+    }
+  }
+
+  .react-reveal,
+  .modals-body,
+  .modals-box {width: calc(66vw - 2 * 1.25rem) !important}
+
+  .modals-inner,
+  .modals-body {min-height: 66vh}
+
+  .modal-info-scroll {max-height: 14vh}
+  .modal-attr-button {@include u.h(3)}
+  
+  .modal-alert-info {@include modal-info-width-h}
+  .modal-content-item {
+    &.--info {
+      @include u.maw-col(3.25);
+      @include u.miw-col(3.25);
+    }
+  }
+}

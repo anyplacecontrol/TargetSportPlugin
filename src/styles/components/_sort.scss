@@ -1,0 +1,78 @@
+.sort-filter {
+  @extend .col-sta-sta, .abs-center-y, .abs-r;
+  z-index: 10;
+  width: 180px;
+  @include media-h-1860 {width: 160px}
+  @include media-h-1240 {width: 140px}
+  @include media-h-960  {width: 120px}
+  @include media-h-480  {width: 100px}
+}
+.sort-filter-btn {
+  @extend .row-end-cen, .bg-transparent, .font-44, .text-right, .line-h-1x2, .ws-nowrap,
+          %relative, %w-full;
+
+  color: var(--col-accent-dark);
+  @include gap-h(0.5);
+
+  .feather {@include sqr(1.75);@include mar-t(0.5)}
+}
+
+@mixin sort-list-width($val: 3.25) {width: calc(100vw - #{$val}rem * 2)}
+
+.sort-filter-list {
+  @extend .col-sta-sta, .bg-white, .round-std-x3, .over-hidden, .abs-t-100p, .abs-r;
+  @include sort-list-width;
+  @include mar-t(2);
+  box-shadow: 10px 20px 44px rgba(0, 0, 0, 0.3);
+  max-width: calc(1080px - 3.25rem * 2);
+
+  @include med-t-xl {@include sort-list-width(2)}
+  @include med-t-lg {@include sort-list-width(1.25)}
+  @include med-t-sm {@include sort-list-width(1)}
+}
+.sort-filter-list-item {
+  @extend .bg-white, .font-48, .line-h-1x2, .text-left, .w-full;
+  @include pad-v(2.25);
+  @include pad-h(3.75);
+
+  @include media-h-1440 {@include pad-v(1.25);@include pad-h(2)}
+  @include media-h-1240 {@include pad(1.25)}
+  @include media-h-480  {@include pad(1)}
+
+  &:not(:first-child) {border-top: solid 3px var(--col-pale)}
+  &.--active {
+    background-color: var(--col-pale);
+    color: var(--def-col-white);
+    border-color: var(--def-col-white);
+    box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.filter-buttons {
+  @extend .row-end-cen, .w-full;
+  @include gap-h(1.5);
+}
+.filter-btn-with-icon {
+  @extend .col-cen-cen;
+  border-radius: 4px;
+  @extend .relative;
+  @include sqr(4.375);
+
+  .feather {
+    width: 60%;
+    height: 60%;
+  }
+}
+.filter-btn-with-icon-count {
+  @extend .col-cen-cen, .fg-white, .circle, .font-20, .wei-regular, .text-center, .abs-t-r;
+  @include sqr(2.5);
+  @include mar-t(-1.25);
+  @include mar-r(-1.25);
+}
+
+@include media-handicapped {
+  .sort-filter-list {width: calc(66vw - 1.25rem * 2)}
+  .sort-filter-list-item {@include pad(1.25)}
+  .filter-btn-with-icon {@include sqr(2.5)}
+  .filter-btn-with-icon-count {@include sqr(2);@include mar-t(-1);@include mar-r(-1)}
+}

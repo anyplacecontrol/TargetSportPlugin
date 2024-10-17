@@ -1,0 +1,41 @@
+@use '../utils' as u;
+
+.cen-by-mar,    %cen-by-mar      {margin-left: auto;margin-right: auto}
+
+.pad-1,         %pad-1           {@include u.pad(1)}
+.pad-3,         %pad-3           {@include u.pad(3)}
+.pad-h-0x25,    %pad-h-0x25      {@include u.pad-h(0.25)}
+.pad-h-0x5,     %pad-h-0x5       {@include u.pad-h(0.5)}
+.pad-h-1,       %pad-h-1         {@include u.pad-h(1)}
+.pad-v-1,       %pad-v-1         {@include u.pad-v(1)}
+
+.gap-v-0x25,    %gap-v-0x25      {@include u.gap-v(0.25)}
+.gap-v-0x5,     %gap-v-0x5       {@include u.gap-v(0.5)}
+.gap-v-1,       %gap-v-1         {@include u.gap-v(1)}
+.gap-v-2,       %gap-v-2         {@include u.gap-v(2)}
+.gap-v-3,       %gap-v-3         {@include u.gap-v(3)}
+.gap-h-0x5,     %gap-h-0x5       {@include u.gap-h(0.5)}
+.gap-h-1,       %gap-h-1         {@include u.gap-h(1)}
+.gap-h-2,       %gap-h-2         {@include u.gap-h(2)}
+
+// Standards
+.gap-v-std-big, %gap-v-std-big   {@include u.gap-v(5.5)}
+.gap-v-std,     %gap-v-std       {@include u.gap-v(3.5)}
+.pad-std,       %pad-std         {@include u.pad(2.75)}
+
+@include u.media-handicapped {
+  .pad-1,         %pad-1         {@include u.pad(0.75)}
+  .pad-3,         %pad-3         {@include u.pad(1.5)}
+  .gap-v-3,       %gap-v-3       {@include u.gap-v(1.75)}
+  .gap-v-2,       %gap-v-2       {@include u.gap-v(1.25)}
+  .gap-h-2,       %gap-h-2       {@include u.gap-h(1.25)}
+
+  .gap-v-std-big, %gap-v-std-big {@include u.gap-v(3.75)}
+  .gap-v-std,     %gap-v-std     {@include u.gap-v(2.25)}
+  .pad-std,       %pad-std       {@include u.pad(1.5)}
+}
+@include u.media-small-tablet {
+  .gap-v-std-big, %gap-v-std-big {@include u.gap-v(2)}
+  .gap-v-std,     %gap-v-std     {@include u.gap-v(1.5)}
+  .gap-v-2,       %gap-v-2       {@include u.gap-v(0.75)}
+}

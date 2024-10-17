@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo "Building the Docker image..."
+      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - REPO_URI=233859119826.dkr.ecr.us-east-1.amazonaws.com/kiosk-ui  
+      - $(aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $REPO_URI)
+      - docker build -t $REPO_URI:$IMAGE_TAG .
+      - docker push $REPO_URI:$IMAGE_TAG
+      - echo "IMAGE_TAG=${IMAGE_TAG}" > imageDetail.txt
+
+artifacts:
+  files:
+    - imageDetail.txt

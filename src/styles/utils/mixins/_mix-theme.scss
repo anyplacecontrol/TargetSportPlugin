@@ -1,0 +1,32 @@
+@use '../variables' as var;
+@use '../functions' as fun;
+
+@mixin coloured-text-n-bg($h, $s, $l) {
+  background-color: fun.hsb($h - 5, $s, $l, 0.15);
+  color: fun.hsb($h, $s, $l);
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {@content}
+  @keyframes #{$name}         {@content}
+}
+
+@include keyframes(rotating) {
+  0%   {transform: rotate(0deg)}
+  100% {transform: rotate(360deg)}
+}
+@include keyframes(indicator-width) {
+  0%    {width: 0}
+  100%  {width: 100%}
+}
+@include keyframes(loading) {
+  0%    {left: 0}
+  50%   {left: calc(100% - 15%)}
+  100%  {left: 0}
+}
+@include keyframes(skeleton-bg) {
+  0%   {background-position: 0 0}
+  100% {background-position: -135% 0}
+}
+
+%anim, %anim::before, %anim::after {transition: all #{var.$anim-duration-fast} ease-in-out}

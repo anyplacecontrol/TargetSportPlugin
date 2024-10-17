@@ -1,0 +1,40 @@
+@use '../utils' as u;
+
+.related-products {@extend %col-sta-sta, %w-full, %gap-v-2}
+.related-products-title {@extend %font-40}
+.related-products-list {
+  &.--std {@extend %col-sta-sta, %w-full, %gap-v-1}
+  &.--new {@extend %grid-core, %grid-3}
+}
+.related-product {
+  @extend %bg-transparent;
+  
+  &.--std {@extend %row-bet-cen, %w-full, %gap-h-1}
+  &.--new {@extend %col-sta-cen, %gap-v-1}
+}
+.related-product-image {
+  @extend %image-box;
+  
+  &.--std {
+    @include u.sqr(5);
+    
+    .product-placeholder-icon {@include u.sqr(3.75)}
+  }
+  &.--new {@include u.h(18)}
+}
+.related-product-add-btn {
+  @extend %btn-core, .--tiny;
+  @include u.miw-col(2.5);
+}
+
+@include u.media-handicapped {
+  .related-product-image {
+    &.--std {
+      @include u.sqr(4.5);
+      
+      .product-placeholder-icon {@include u.sqr(3)}
+    }
+    &.--new {@include u.h(13)}
+  }
+  .related-product-add-btn {@include u.miw-col(2)}
+}

@@ -1,0 +1,78 @@
+@use '../utils' as u;
+
+.products-list {
+  @extend %grid-core;
+
+  &.--full-grid {
+    @extend %grid-3;
+
+    .product-image-box {@include u.h(18)}
+  }
+  &.--with-cart {
+    @extend %grid-2;
+
+    .product-image-box {@include u.h(16)}
+  }
+}
+.product-item {
+  @include u.gap-v(0.75);
+
+  &:not(.--left) {@extend %col-sta-cen, %text-center}
+  &.--sold-out {@extend %opacity-0x5}
+}
+.product-image-box {@extend %image-box}
+.product-title {@extend %ow-word, %trans-cap, %w-full}
+.product-price {
+  @extend %col-sta-cen;
+
+  > * {@extend %w-full}
+}
+
+// Placeholder
+.product-placeholder {@extend %col-cen-cen, %bg-white, %text-center, %full-sz, %gap-v-0x5}
+.product-placeholder-title {
+  @extend %font-20;
+  width: 75%;
+}
+.product-placeholder-icon {@include u.sqr(7.5)}
+.product-placeholder-name {@extend %font-16}
+
+%product-service-styles {
+  @extend %col-cen-cen, %fg-white, %shad-medium, %text-center;
+
+  &.--std {@extend %font-18}
+}
+.product-discount {
+  @extend %product-service-styles, %bg-error, %round-to-content, %abs-t-r, %pad-h-1;
+  @include u.mar-t(0.5);
+  @include u.mar-r(0.5);
+
+  &.--std {
+    @include u.miw(2.75);
+    @include u.h(2.75);
+  }
+}
+.product-sold-out {
+  @extend %product-service-styles, %round-std, %abs-center;
+  width: 60%;
+
+  &.--std {height: 17.5%}
+}
+
+@include u.media-handicapped {
+  .products-list {
+    &.--full-grid {
+      .product-image-box {@include u.h(13)}
+    }
+    &.--with-cart {
+      @include u.grid(1);
+
+      .product-image-box {@include u.h(18)}
+    }
+  }
+  
+  %product-service-styles {
+    &.--std {@include u.font-size(16)}
+  }
+  .product-placeholder-icon {@include u.sqr(5)}
+}

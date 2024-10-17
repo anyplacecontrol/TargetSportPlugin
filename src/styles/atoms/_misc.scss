@@ -1,0 +1,68 @@
+// General
+%hidden-input,
+.hidden-input {
+  @extend .hidden, .vis-hidden, .fixed, .full-sz-0;
+  right: 100vw;
+}
+%anim, %anim::before, %anim::after,
+.anim, .anim::before, .anim::after {transition: all 0.2s ease-in-out}
+
+.bg-pos-start,  %bg-pos-start  {background-position: 0}
+.bg-pos-cen,    %bg-pos-cen    {background-position: 50%}
+.bg-no-repeat,  %bg-no-repeat  {background-repeat: no-repeat}
+.bg-size-cover, %bg-size-cover {background-size: cover}
+.bg-size-100p,  %bg-size-100p  {background-size: 100%}
+.bg-cover,      %bg-cover      {@extend %bg-no-repeat, %bg-pos-cen; background-size: cover}
+.bg-contain,    %bg-contain    {@extend %bg-no-repeat; background-size: contain}
+.bg-cen-100p,   %bg-cen-100p   {@extend %bg-pos-cen, %bg-no-repeat, %bg-size-100p}
+
+// <img>-specific properties.
+.img-con,       %img-con       {object-fit: contain}
+.img-cov,       %img-cov       {object-fit: cover}
+.img-cen,       %img-cen       {object-position: center}
+
+.cur-auto,      %cur-auto      {cursor: auto}
+.cur-move,      %cur-move      {cursor: move}
+.cur-text,      %cur-text      {cursor: text}
+.cur-wait,      %cur-wait      {cursor: wait}
+.cur-help,      %cur-help      {cursor: help}
+.cur-def,       %cur-def       {cursor: default}
+.cur-point,     %cur-point     {cursor: pointer}
+.cur-hand,      %cur-hand      {cursor: hand}
+.cur-zoom,      %cur-zoom      {cursor: zoom-in}
+.cur-zoom-out,  %cur-zoom-out  {cursor: zoom-out}
+.cur-pro,       %cur-pro       {cursor: progress}
+.cur-cross,     %cur-cross     {cursor: crosshair}
+.cur-not,       %cur-not       {cursor: not-allowed}
+.cur-none,      %cur-none      {pointer-events: none}
+
+.opacity-0,     %opacity-0     {opacity: 0}
+.opacity-0x35,  %opacity-0x35  {opacity: 0.35}
+.opacity-0x5,   %opacity-0x5   {opacity: 0.5}
+.opacity-0x75,  %opacity-0x75  {opacity: 0.75}
+.opacity-0x95,  %opacity-0x95  {opacity: 0.95}
+.opacity-1,     %opacity-1     {opacity: 1}
+
+.over-hidden,   %over-hidden   {overflow: hidden}
+.over-auto,     %over-auto     {overflow: auto}
+.over-visible,  %over-visible  {overflow: visible}
+.over-x-auto,   %over-x-auto   {overflow-x: auto;  @extend %over-y-hidden}
+.over-x-scroll, %over-x-scroll {overflow-x: scroll;@extend %over-y-hidden}
+.over-x-hidden, %over-x-hidden {overflow-x: hidden}
+.over-y-auto,   %over-y-auto   {overflow-y: auto;  @extend %over-x-hidden}
+.over-y-scroll, %over-y-scroll {overflow-y: scroll;@extend %over-x-hidden}
+.over-y-hidden, %over-y-hidden {overflow-y: hidden}
+
+.vis-hidden,    %vis-hidden    {visibility: hidden}
+.vis-visible,   %vis-visible   {visibility: visible}
+.vis-collapse,  %vis-collapse  {visibility: collapse}
+
+.reflection-v,  %reflection-v  {transform: scale(1, -1)}
+.reflection-h,  %reflection-h  {transform: scale(-1, 1)}
+.reflection-vh, %reflection-vh {transform: scale(-1, -1)}
+
+.rotate-45,     %rotate-45     {transform: rotate(45deg)}
+.rotate--45,    %rotate--45    {transform: rotate(-45deg)}
+.rotate--90,    %rotate--90    {transform: rotate(-90deg)}
+
+.aspect-ratio-16x9, %aspect-ratio-16x9  {padding-bottom: 56.25%}

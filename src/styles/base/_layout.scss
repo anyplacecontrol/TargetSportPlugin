@@ -1,0 +1,128 @@
+@use '../utils' as u;
+
+#root {@extend .col-sta-str, .w-full; height: 100vh}
+#main {
+  @extend .col-end-str, .bg-black, .over-hidden, .flex-1, .miw-content, .w-full;
+  min-height: 480px;
+}
+
+.content-width, %content-width {
+  @extend .maw-content, %relative, %w-full, .cen-by-mar;
+  &:not(.--no-pad-h) {@extend %content-pad-h}
+}
+.content {
+  @extend .col-sta-str, .relative, .flex-1, .w-full;
+  background: url(../img/content-bg.jpg) 50% 0 #ECEADF;
+  overflow: hidden !important;
+
+  &.v2 {
+    background-image: url(../img/content-bg-2.jpg);
+    background-color: var(--col-primary);
+    @extend .bg-size-cover;
+  }
+
+  &.bg-white {@extend .bg-white}
+}
+.content-inner {@extend .col-sta-str, .over-hidden, .relative, .w-full}
+.content-pad-h, %content-pad-h {
+  @include u.pad-h(3.25);
+  @include u.med-t-xl {@include u.pad-h(2)}
+  @include u.med-t-lg {@include u.pad-h(1.25)}
+  @include u.med-t-sm {@include u.pad-h(1)}
+}
+
+.header {
+  @include u.h-vh(13.5);
+
+  & + * {
+    .breadcrumbs {
+      @include u.h-vh(5.5);
+      @include u.pad-t(0);
+
+      & + .main-block {flex: auto !important;@include u.h-vh(81);@include u.pad-t(0)}
+    }
+    .choice, .main-block {@include u.h-vh(86.5)}
+  }
+
+  &.--ads {
+    @include u.h-vh(31.46);
+
+    + * {
+      .breadcrumbs + .main-block {@include u.h-vh(63.04)}
+      .choice, .main-block {@include u.h-vh(68.54)}
+      .choice-item {@include u.h-vh(40)}
+      .card {@include u.h-vh(30)}
+
+      .gap-v-std-big  {@include u.gap-v(2.75)}
+      .gap-v-std      {@include u.gap-v(1.75)}
+
+      .--vertical-buttons {
+        > * {&:not(:first-child):not(:only-child) {margin-top: 2.25vh}}
+      }
+
+      .brand-h1 {margin-top: 1vh !important}
+    }
+  }
+
+  &.--small {
+    @include u.h-vh(8.75);
+
+    & + * {
+      .breadcrumbs + .main-block {@include u.h-vh(84.75)}
+      .choice, .main-block {@include u.h-vh(91.25)}
+    }
+  }
+}
+
+@include u.media-handicapped {
+  .header {
+    @include u.h-vh(8);
+
+    & + * {
+      .breadcrumbs {
+        @include u.h-vh(3.5);
+        @include u.pad-t(0.5);
+
+        & + .main-block {@include u.h-vh(54.5)}
+      }
+      .choice, .main-block {@include u.h-vh(58)}
+    }
+
+    &.--ads {
+      @include u.h-vh(20.85);
+
+      + * {
+        .breadcrumbs + .main-block {@include u.h-vh(41.65)}
+        .choice, .main-block  {@include u.h-vh(45.15)}
+        .choice-item {@include u.h-vh(20)}
+        .card {@include u.h-vh(17.5)}
+        .card-image {@include u.h-vh(22.5)}
+
+        .gap-v-std-big  {@include u.gap-v(2)}
+        .gap-v-std      {@include u.gap-v(1)}
+
+        .--vertical-buttons {
+          > * {&:not(:first-child):not(:only-child) {margin-top: 1.25vh}}
+        }
+      }
+    }
+
+    &.--small {
+      @include u.h-vh(5.5);
+
+      & + * {
+        .breadcrumbs + .main-block {@include u.h-vh(56)}
+        .choice, .main-block {@include u.h-vh(61.5)}
+      }
+    }
+  }
+  %content-pad-h,
+  .content-pad-h {@include u.pad-h(1.25)}
+}
+@include u.media-small-tablet {
+  .header {
+    @include u.h(6);
+
+    & + * {.choice, .main-block {@include u.h-vh(31.5)}}
+  }
+}

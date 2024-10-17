@@ -1,0 +1,43 @@
+@use '../functions' as fun;
+@use 'mix-flex' as fl;
+@use 'mix-sizes' as sz;
+
+@mixin circle {border-radius: 50%}
+
+@mixin brd($direction: none, $colour: transparent, $thickness: 1px, $type: solid, $imp: false) {
+  @if      $direction == t {border-top:    $thickness $type $colour fun.important($imp)}
+  @else if $direction == r {border-right:  $thickness $type $colour fun.important($imp)}
+  @else if $direction == b {border-bottom: $thickness $type $colour fun.important($imp)}
+  @else if $direction == l {border-left:   $thickness $type $colour fun.important($imp)}
+  @else                    {border:        $thickness $type $colour fun.important($imp)}
+}
+@mixin bdrs($direction: none, $val: var(--rad-std), $imp: false) {
+  @if      $direction == t  {border-radius: $val $val 0 0 fun.important($imp)}
+  @else if $direction == r  {border-radius: 0 $val $val 0 fun.important($imp)}
+  @else if $direction == b  {border-radius: 0 0 $val $val fun.important($imp)}
+  @else if $direction == l  {border-radius: $val 0 0 $val fun.important($imp)}
+  @else if $direction == tl {border-radius: $val 0 0 0    fun.important($imp)}
+  @else if $direction == tr {border-radius: 0 $val 0 0    fun.important($imp)}
+  @else if $direction == br {border-radius: 0 0 $val 0    fun.important($imp)}
+  @else if $direction == bl {border-radius: 0 0 0 $val    fun.important($imp)}
+  @else                     {border-radius: $val          fun.important($imp)}
+}
+
+@mixin hr-body() {
+  @include fl.flex-layout(col, sta, sta);
+  background-color: currentColor;
+  border: 0;
+}
+@mixin hr-h($thickness: 1px) {
+  @include hr-body;
+  @include sz.w-full;
+  min-height: $thickness;
+  height: $thickness;
+}
+@mixin hr-v($thickness: 1px) {
+  @include hr-body;
+  align-self: stretch;
+  min-width: $thickness;
+  width: $thickness;
+  height: auto;
+}

@@ -1,0 +1,19 @@
+@use 'sass:math';
+
+$radius:                  0.25rem;
+
+// Animation speed
+$anim-duration-fast:      0.2s;
+$anim-duration-slow:      1s;
+
+// Grid
+$page-max-width:          1080;
+$page-min-width:          320;
+$cols:                    12;
+$col-gutter:              20;
+$content-width:           $page-max-width - ($col-gutter * 2);
+$col-width:               math.div($content-width - $col-gutter * $cols - 1, $cols);
+
+// Font
+$font-plain-text:         'AppFontPrimary';
+$font-titles:             'AppFontCustom';

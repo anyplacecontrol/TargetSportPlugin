@@ -1,0 +1,199 @@
+.checkout {
+  @extend .w-full, .gap-v-1, .vertical-scroll, .over-y-auto;
+  @include mah(23.5);
+
+  padding-right: 20px;
+
+  .checkbox {
+    margin-top: 0 !important;
+  }
+}
+.checkout__item {
+  font-size: 35px;
+  line-height: 1.2;
+
+  margin-top: 30px;
+
+  align-items: center;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 10px;
+  }
+
+  &--left {
+    width: 100%;
+
+    padding-right: 200px;
+  }
+
+  &--text {
+  }
+
+  &--right {
+    width: 170px;
+
+    margin-left: -170px;
+  }
+
+  &--price {
+    color: var(--col-primary);
+    text-align: right;
+    @extend .wei-bold;
+  }
+}
+
+@include media-h-1860 {
+  .checkout {
+    &__item {
+      font-size: 30px;
+
+      margin-top: 30px;
+
+      &--left {
+        padding-right: 160px;
+      }
+
+      &--right {
+        width: 140px;
+
+        margin-left: -140px;
+      }
+    }
+  }
+}
+@include media-h-1240 {
+  .checkout {
+    &__item {
+      font-size: 26px;
+
+      &--left {
+        padding-right: 140px;
+      }
+
+      &--right {
+        width: 120px;
+
+        margin-left: -120px;
+      }
+    }
+  }
+}
+@include media-h-960 {
+  .checkout {
+    &__item {
+      font-size: 22px;
+
+      &--left {
+        padding-right: 120px;
+      }
+
+      &--right {
+        width: 100px;
+
+        margin-left: -100px;
+      }
+    }
+  }
+}
+@include med-t-lg {
+  .checkout {
+    &__item {
+      font-size: 30px;
+
+      margin-top: 20px;
+
+      &--left {
+        padding-right: 160px;
+      }
+
+      &--right {
+        width: 140px;
+
+        margin-left: -140px;
+      }
+    }
+  }
+}
+@include med-t-sm {
+  .checkout {
+    &__item {
+      font-size: 26px;
+
+      &--left {
+        padding-right: 140px;
+      }
+
+      &--right {
+        width: 120px;
+
+        margin-left: -120px;
+      }
+    }
+  }
+}
+@include med-m-xl {
+  .checkout {
+    &__item {
+      font-size: 22px;
+
+      &--left {
+        padding-right: 120px;
+      }
+
+      &--right {
+        width: 100px;
+
+        margin-left: -100px;
+      }
+    }
+  }
+}
+@include med-m-lg {
+  .checkout {
+    &__item {
+      font-size: 20px;
+
+      flex-direction: column;
+
+      &--left {
+        padding-right: 0;
+      }
+
+      &--right {
+        width: 100%;
+
+        margin-left: 0;
+      }
+
+      &--price {
+        text-align: left;
+
+        padding: 10px 0 0 40px;
+      }
+    }
+  }
+}
+@include media-handicapped {
+  .checkout {
+    @include mah(16);
+
+    &__item {
+      font-size: 26px;
+      margin-top: 20px;
+
+      &--left {
+        padding-right: 140px;
+      }
+
+      &--right {
+        width: 120px;
+
+        margin-left: -120px;
+      }
+    }
+  }
+}

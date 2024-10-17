@@ -1,0 +1,7 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Logging": "/tmp/kiosk-ui-app",
+  "Image": {
+  	"Update": "false"
+  }
+}

@@ -1,0 +1,214 @@
+@use '../utils' as u;
+
+@include u.handicapped {
+  @extend %cen-by-mar;
+  overflow: hidden;
+  width: 66vw !important;
+  max-height: 66vh !important;
+  min-height: 66vh !important;
+  height: 66vh !important;
+}
+
+.qr-code-img {
+  @extend %col-cen-cen, %text-center;
+  @include sqr(9.75);
+}
+@include u.media-handicapped {
+  .qr-code-img {@include sqr(6.5)}
+}
+
+.bg-video {
+  @extend %col-cen-cen, %w-full;
+
+  &:not(.--ar-16x9) {
+    @extend %abs-center, %z-index-0;
+
+    @include u.after {@extend %cover-bg}
+  }
+
+  video {@extend %full-sz}
+}
+
+// Feather Svg
+.feather {
+  stroke-width: 0;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: currentColor;
+}
+.img-size-std, %img-size-std {width: 50%;height: 50%}
+
+// Logo
+.logo-box {
+  @extend %col-cen-cen, %w-full;
+
+  &.--std {height: 75%}
+  &.--big {height: 14.75vh}
+  &.--logo-hidden {@extend %opacity-0}
+}
+.logo {@extend %full-sz-max}
+
+// Cancel Btn
+.cancel-btn-icon {
+  @extend %bg-white, %circle, %shad-small, %absolute;
+  top: -2.75rem;
+  right: 1.25rem;
+  @include u.sqr(5.5);
+  .feather {@extend %img-size-std}
+}
+.modal-close-btn {
+  @extend %row-cen-cen, %round-std, %shad-medium, %cur-point, %font-40, %text-center, %abs-t-r;
+  @include u.z-index(10);
+  width: 250px;
+  height: 90px;
+
+  &:not(.--title-btn) {@include u.mar-t(-6.5)}
+
+  &.--title-btn {
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    margin: auto !important;
+    position: absolute !important;
+  }
+}
+
+// Scroll Arrow
+.scroll-arrow {
+  @extend %col-cen-cen, %bg-pos-cen, %bg-no-repeat, %shad-medium, %abs-center-x, %z-index-3;
+  background-size: 2.5rem;
+  @include u.w(6.25);
+  @include u.h(3.75);
+  margin-left: -10px;
+
+  &.--top {
+    background-image: url(../img/svg/arrow-top.svg);
+    border-radius: 0 0 var(--rad-std-x3) var(--rad-std-x3);
+    @extend %abs-t;
+  }
+
+  &.--bottom {
+    background-image: url(../img/svg/arrow-bottom.svg);
+    border-radius: var(--rad-std-x3) var(--rad-std-x3) 0 0;
+    @extend %abs-b;
+  }
+}
+
+@include u.media-handicapped {
+  .modal-close-btn {
+    width: 160px;
+    height: 50px;
+
+    &:not(.--title-btn) {@include u.mar-t(-4)}
+  }
+}
+@include u.media-small-tablet {
+  .modal-close-btn {
+    width: 120px;
+    height: 40px;
+    &:not(.--title-btn) {@include u.mar-t(-2)}
+  }
+  .cancel-btn-icon {
+    top: -1.25rem;
+    right: 0.5rem;
+    @include u.sqr(2.5);
+  }
+}
+
+// Loading
+.loading {@extend %col-cen-cen, %fix-fit, %z-index-overlay}
+.loading-bg {@extend %abs-fit, %z-index-0}
+.loading-inner {
+  @extend %circle, %relative, %z-index-1;
+  @include u.brd(_, transparent, 12px);
+  @include u.brd(t, var(--def-col-white), 12px);
+  @include u.brd(b, var(--def-col-white), 12px);
+  @include u.sqr(12.5);
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0%   {transform: rotate(0deg)}
+  100% {transform: rotate(360deg)}
+}
+
+// 9.5 * 16 / 1920
+.--is-start-loading-big + .loading {padding-bottom: 7.083vh}
+.content.v2 + .loading {padding-right: 1.48vw;padding-bottom: 4.58vh}
+
+// Image Styles
+%image-box {@extend %bg-white, %bg-cover, %round-std-x2, %relative, %over-hidden, %w-full}
+
+.iframe-box {
+  @extend %w-full;
+  @include u.h-vh(21.5);
+  
+  iframe {
+    @extend %full-sz;
+    border: none;
+  }
+}
+.--with-cover {
+  @extend %relative;
+  
+  @include u.after {@extend %bg-transparent, %abs-fit, %z-index-1}
+}
+
+.pick-up-order-image {
+  @include u.mah-vh(30);
+  @include u.maw-vw(50);
+}
+@include u.media-handicapped {
+  .pick-up-order-image {
+    @include u.mah-vh(20);
+    @include u.maw-vw(33.5);
+  }
+}
+
+.logo-under-cart {
+  @include u.mar-t(2.5);
+  max-width: 56%;
+  max-height: 165px;
+}
+@include u.media-handicapped {
+  .logo-under-cart {
+    @include u.mar-t(0.5);
+    max-width: 46%;
+    max-height: 105px;
+  }
+}
+
+.bundle-banner-parent {
+  @extend %bg-cen-100p, %cur-point, %abs-l, %z-index-3, %w-full, %content-pad-h;
+  bottom: 7vh;
+}
+.bundle-banner {
+  @extend %row-sta-cen, %bg-cover, %round-std-x2, %shad-light, %w-full;
+  @include u.h(10);
+  @include u.pad-h(2.5);
+}
+.bundle-banner-icon {@include u.sqr(4)}
+.bundle-banner-close {
+  @extend %row-bet-cen, %bg-transparent, %abs-t-r, %gap-h-0x5;
+  @include u.mar-t(0.5);
+  @include u.mar-r(0.5);
+  @include u.pad(0.5);
+}
+.bundle-banner-close-icon {
+  @extend %col-cen-cen, %circle;
+  @include u.sqr(2.5);
+  
+  .feather {@extend %img-size-std}
+}
+@include u.media-handicapped {
+  .bundle-banner-parent {bottom: 5.25vh}
+  .bundle-banner {
+    @include u.pad-v(2.5);
+    @include u.pad-h(1.75);
+  }
+  .bundle-banner-icon {@include u.sqr(2.5)}
+  .bundle-banner-close {
+    @include u.mar-t(0.25);
+    @include u.mar-r(0.25);
+  }
+  .bundle-banner-close-icon {@include u.sqr(1.5)}
+}

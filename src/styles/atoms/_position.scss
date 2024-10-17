@@ -1,0 +1,94 @@
+@use '../utils' as u;
+
+%blk,
+.blk                {@include blk}
+%show,
+.show               {@include blk}
+%hidden,
+.hidden             {@include d-none}
+
+// Position
+.relative,
+%relative           {position: relative}
+.static,
+%static             {position: static}
+.absolute,
+%absolute           {position: absolute}
+.fixed,
+%fixed              {position: fixed}
+%sticky             {position: -webkit-sticky;position: sticky}
+
+%top-0              {top: 0}
+%rig-0              {right: 0}
+%bot-0              {bottom: 0}
+%lef-0              {left: 0}
+%top-100p           {top: 100%}
+%rig-100p           {right: 100%}
+%bot-100p           {bottom: 100%}
+%lef-100p           {left: 100%}
+
+%fit-hor            {@extend %rig-0, %lef-0}
+%fit-ver            {@extend %top-0, %bot-0}
+%fit                {@extend %fit-hor, %fit-ver}
+
+%top-rig-0          {@extend %top-0, %rig-0}
+%top-lef-0          {@extend %top-0, %lef-0}
+%bot-rig-0          {@extend %bot-0, %rig-0}
+%bot-lef-0          {@extend %bot-0, %lef-0}
+
+.abs-t,
+%abs-t,             {@extend %absolute, %top-0}
+.abs-t-100p,
+%abs-t-100p,        {@extend %absolute, %top-100p}
+.abs-t-l,
+%abs-t-l,           {@extend %absolute, %top-lef-0}
+.abs-t-r,
+%abs-t-r,           {@extend %absolute, %top-rig-0}
+.abs-b,
+%abs-b,             {@extend %absolute, %bot-0}
+.abs-b-100p,
+%abs-b-100p,        {@extend %absolute, %bot-100p}
+.abs-b-l,
+%abs-b-l,           {@extend %absolute, %bot-lef-0}
+.abs-b-r,
+%abs-b-r,           {@extend %absolute, %bot-rig-0}
+.abs-l,
+%abs-l,             {@extend %absolute, %lef-0}
+.abs-r,
+%abs-r,             {@extend %absolute, %rig-0}
+.abs-fit,
+%abs-fit,           {@extend %absolute, %fit}
+.abs-center,
+%abs-center,        {@extend %absolute;@include u.pos-center}
+.abs-center-x,
+%abs-center-x,      {@extend %absolute;@include u.pos-center-x}
+.abs-center-y,
+%abs-center-y,      {@extend %absolute;@include u.pos-center-y}
+
+%fix-t              {@extend %fixed, %top-0}
+%fix-t-l            {@extend %fixed, %top-lef-0}
+%fix-t-r            {@extend %fixed, %top-rig-0}
+.fix-b,
+%fix-b              {@extend %fixed, %bot-0}
+%fix-b-l            {@extend %fixed, %bot-lef-0}
+%fix-b-r            {@extend %fixed, %bot-rig-0}
+%fix-l              {@extend %fixed, %lef-0}
+%fix-r              {@extend %fixed, %rig-0}
+.fix-fit,
+%fix-fit            {@extend %fixed, %fit}
+.fix-center,
+%fix-center         {@extend %fixed;@include u.pos-center}
+.fix-center-x,
+%fix-center-x       {@extend %fixed;@include u.pos-center-x}
+
+// Z-index
+%z-index-background {@include u.z-index(var(--z-ind-background))} // -100
+.z-index-backward, %z-index-backward {@include u.z-index(var(--z-ind-backward))}   // -1
+.z-index-0,         %z-index-0       {@include u.z-index(0)}
+.z-index-1,         %z-index-1       {@include u.z-index(1)}
+.z-index-2,         %z-index-2       {@include u.z-index(2)}
+.z-index-3,         %z-index-3       {@include u.z-index(3)}
+%z-index-select     {@include u.z-index(var(--z-ind-select))}     // 50
+%z-index-tooltip    {@include u.z-index(var(--z-ind-tooltip))}    // 75
+.z-index-high,      %z-index-high    {@include u.z-index(var(--z-ind-high))}       // 100
+.z-index-overlay,   %z-index-overlay {@include u.z-index(var(--z-ind-overlay))}    // 500

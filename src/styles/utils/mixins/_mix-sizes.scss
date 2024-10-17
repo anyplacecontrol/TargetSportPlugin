@@ -1,0 +1,35 @@
+@use '../functions' as fun;
+
+@mixin core-sz($prefix: '', $prop: 'width', $val: null, $unit: 'rem', $imp: false) {
+  @if $val != null and $val >= 0 {
+    #{$prefix}#{$prop}: fun.unit-or-zero($val, $unit) fun.important($imp)
+  }
+}
+
+@mixin maw($val, $imp: false)      {@include core-sz($prefix: 'max-', $val: $val, $imp: $imp)}
+@mixin miw($val, $imp: false)      {@include core-sz($prefix: 'min-', $val: $val, $imp: $imp)}
+@mixin w($val, $imp: false)        {@include miw($val, $imp);@include core-sz($val: $val, $imp: $imp)}
+@mixin w-full($imp: false)         {width: 100% fun.important($imp)}
+@mixin w-auto($imp: false)         {width: auto fun.important($imp)}
+@mixin maw-vw($val, $imp: false)   {@include core-sz($prefix: 'max-', $val: $val, $unit: 'vw', $imp: $imp)}
+@mixin miw-vw($val, $imp: false)   {@include core-sz($prefix: 'min-', $val: $val, $unit: 'vw', $imp: $imp)}
+@mixin w-vw($val, $imp: false)     {@include miw-vw($val, $imp);@include core-sz($val: $val, $unit: 'vw', $imp: $imp)}
+@mixin mah($val, $imp: false)      {@include core-sz($prefix: 'max-', $prop: 'height', $val: $val, $imp: $imp)}
+@mixin mih($val, $imp: false)      {@include core-sz($prefix: 'min-', $prop: 'height', $val: $val, $imp: $imp)}
+@mixin h($val, $imp: false)        {@include mih($val, $imp);@include core-sz($prop: 'height', $val: $val, $imp: $imp)}
+@mixin h-full($imp: false)         {height: 100% fun.important($imp)}
+@mixin h-auto($imp: false)         {height: auto fun.important($imp)}
+@mixin mah-vh($val, $imp: false)   {@include core-sz($prefix: 'max-', $prop: 'height', $val: $val, $unit: 'vh', $imp: $imp)}
+@mixin mih-vh($val, $imp: false)   {@include core-sz($prefix: 'min-', $prop: 'height', $val: $val, $unit: 'vh', $imp: $imp)}
+@mixin h-vh($val, $imp: false)     {@include mih-vh($val, $imp);@include core-sz($prop: 'height', $val: $val, $unit: 'vh', $imp: $imp)}
+
+@mixin maw-col($val, $imp: false)  {max-width: fun.px-to-rem(fun.col-width($val)) fun.important($imp);@include w-full($imp)}
+@mixin maw-col-auto($imp: false)   {max-width: 100% fun.important($imp);@include w-auto($imp)}
+@mixin miw-col($val, $imp: false)  {min-width: fun.px-to-rem(fun.col-width($val)) fun.important($imp)}
+@mixin miw-col-auto($imp: false)   {min-width: 1px fun.important($imp)}
+
+@mixin sqr($val, $imp: false)      {
+  flex: 0 0 fun.unit-or-zero($val) fun.important($imp);
+  @include w($val, $imp);
+  @include h($val, $imp);
+}

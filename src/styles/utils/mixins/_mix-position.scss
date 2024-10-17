@@ -1,0 +1,12 @@
+@use '../functions' as fun;
+
+@mixin blk                  {display: block}
+@mixin inl-blk              {display: inline-block}
+@mixin d-none($imp: false)  {display: none fun.important($imp)}
+@mixin d-none-imp           {@include d-none(true)}
+
+@mixin pos-center           {top: 50%;left: 50%;transform: translateY(-50%) translateX(-50%)}
+@mixin pos-center-x         {left: 50%;transform: translateX(-50%)}
+@mixin pos-center-y         {top: 50%;transform: translateY(-50%)}
+
+@mixin z-index($index, $imp: false) {z-index: $index fun.important($imp)}

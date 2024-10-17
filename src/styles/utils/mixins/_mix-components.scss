@@ -1,0 +1,30 @@
+@use 'sass:math';
+@use 'mix-borders' as bd;
+@use 'mix-pseudo-elements' as pe;
+@use 'mix-sizes' as sz;
+@use 'mix-white-spaces' as ws;
+
+//@mixin logo-size($h: 2.75) {
+//  @include sz.w(3.75 * $h);
+//  @include sz.h($h);
+//}
+//@mixin logo($h: 2.75, $filename: 'black') {
+//  @include logo-size($h);
+//  background-image: url(../img/svg/logo/#{$filename}.svg);
+//}
+
+@mixin check-icon($size: 0.125) {
+  $half-of-size: math.div($size, 2) * -1;
+
+  @include pe.after {
+    @extend .absolute, .opacity-0;
+    @include bd.brd(r, var(--col-white), #{$size}rem);
+    @include bd.brd(b, var(--col-white), #{$size}rem);
+    @include sz.w($size * 2);
+    @include sz.h($size * 4);
+    @include ws.mar-t($half-of-size);
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%) rotate(45deg);
+  }
+}

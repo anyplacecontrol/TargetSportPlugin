@@ -1,0 +1,79 @@
+@use '../utils' as u;
+
+.breadcrumbs {
+  @extend %row-cen-cen, %content-width;
+
+  &.v2 {@include u.h(12)}
+
+  &.back {
+    .breadcrumbs-inner {@extend %row-sta-cen}
+    .breadcrumbs-h1 {@include u.pad-l(13.75)}
+  }
+
+  &.sort {
+    .breadcrumbs-inner {@extend %row-cen-cen}
+    .breadcrumbs-h1 {@include u.pad-r(13.75)}
+  }
+
+  &:not(.back):not(.sort) {
+    .breadcrumbs-h1 {@extend %text-center}
+  }
+}
+.breadcrumbs-inner {@extend %row-sta-cen, %relative, %full-sz}
+.breadcrumbs-h1 {@extend %w-full}
+
+@mixin back-btn-width($w) {
+  min-width: #{$w}px;
+  width: #{$w}px;
+}
+.btn-back {
+  @extend %row-cen-cen, %fg-white, %round-std, %font-40, %text-center;
+  @include back-btn-width(170);
+  height: 70px;
+  margin-left: 35px;
+  
+  &.--std {@extend %abs-center-y, %abs-l}
+  &.--inline {@extend %relative}
+}
+.btn-back-triangle {
+  @extend %abs-b;
+  left: -47px;
+  height: 48px;
+  width: 48px;
+  top: 50%;
+  transform: translate(50%, -50%) rotate(45deg);
+}
+
+@include u.med-m-xl {
+  .breadcrumbs {
+    &.back {.breadcrumbs-h1 {@include u.pad-l(4.5)}}
+    &.sort {.breadcrumbs-h1 {@include u.pad-r(4.5)}}
+  }
+  .btn-back {
+    font-size: 18px;
+    @include back-btn-width(50);
+    height: 30px;
+    margin-left: 10px;
+  }
+  .btn-back-triangle {
+    left: -18px;
+    height: 20px;
+    width: 20px;
+  }
+}
+@include u.media-handicapped {
+  .breadcrumbs {
+    &.back {.breadcrumbs-h1 {@include u.pad-l(8)}}
+    &.sort {.breadcrumbs-h1 {@include u.pad-r(8)}}
+  }
+  .btn-back {
+    @include back-btn-width(90);
+    height: 40px;
+    margin-left: 20px;
+  }
+  .btn-back-triangle {
+    left: -27px;
+    height: 28px;
+    width: 28px;
+  }
+}

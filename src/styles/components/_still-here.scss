@@ -1,0 +1,99 @@
+@use 'sass:math';
+
+.are-you-still-here {
+  @extend .col-cen-cen, .bg-transparent, .relative, .relative, .w-full, .cen-by-mar;
+  @include pad-v(3.25);
+  @include pad-h(1);
+  max-width: 80%;
+
+  > *:not(.are-you-still-here-bg) {
+    @extend .relative, .z-index-1;
+
+    &:not(:first-child) {
+      margin-top: 2.5vh;
+    }
+  }
+}
+.countdown-core {
+  @extend .col-cen-cen, .circle, .text-center, .relative;
+}
+.are-you-still-here-countdown {
+  @extend .countdown-core, .bg-success-light;
+  @include sqr(26.5);
+  @include pad(2);
+
+  &.--warning {
+    @extend .bg-error-light;
+    .are-you-still-here-circle {
+      @include before {
+        @extend .bg-error;
+      }
+    }
+    .are-you-still-here-circle-cover {
+      @extend .bg-error-light;
+    }
+  }
+}
+.are-you-still-here-circle {
+  @extend .col-sta-sta, .full-sz, .circle, .over-hidden, .abs-t-l, .z-index-0;
+  transform-origin: center;
+
+  @include before {
+    @extend .bg-success, .h-100p;
+    width: 50%;
+  }
+}
+.are-you-still-here-circle-cover {
+  @extend .col-sta-sta, .bg-success-light, .abs-t-l, .z-index-1, .h-100p;
+  border-radius: 13.25rem 0 0 13.25rem;
+  width: 50%;
+}
+.are-you-still-here-circle-under {
+  @extend .col-sta-sta, .bg-success, .abs-t-r, .z-index-1, .h-100p;
+  border-radius: 0 13.25rem 13.25rem 0;
+  width: 50%;
+}
+.are-you-still-here-countdown-seconds {
+  @extend .countdown-core, .full-sz, .z-index-1;
+  font-size: 200px;
+}
+.are-you-still-here-title {
+  @extend .font-54, .text-center, .line-h-1x2;
+}
+.are-you-still-here-btn {
+  @extend .maw-col-4;
+}
+.are-you-still-here-bg {
+  @extend .round-std-x3, .abs-b-l, .z-index-0, .w-full;
+  height: 66%;
+}
+
+@include media-handicapped {
+  .are-you-still-here-countdown {
+    @include sqr(18);
+  }
+  .are-you-still-here-circle-cover {
+    border-radius: 9rem 0 0 9rem;
+  }
+  .are-you-still-here-circle-under {
+    border-radius: 0 9rem 9rem 0;
+  }
+  .are-you-still-here-countdown-seconds {
+    font-size: 100px;
+  }
+}
+@include media-small-tablet {
+  .are-you-still-here-countdown {
+    @include sqr(8);
+    @include pad(1);
+  }
+  .are-you-still-here-countdown-seconds {
+    font-size: 60px;
+  }
+  .are-you-still-here-circle-cover {
+    border-radius: 4rem 0 0 4rem;
+  }
+  .are-you-still-here-circle-under {
+    border-radius: 0 4rem 4rem 0;
+  }
+}

@@ -1,0 +1,112 @@
+@use '../utils' as u;
+
+// Font Size Customization - VH
+.font-90, %font-90 {@include u.font-size(90)}
+.font-72, %font-72 {@include u.font-size(72)}
+.font-60, %font-60 {@include u.font-size(60)}
+.font-54, %font-54 {@include u.font-size(54)}
+.font-50, %font-50 {@include u.font-size(50)}
+.font-48, %font-48 {@include u.font-size(48)}
+.font-44, %font-44 {@include u.font-size(44)}
+.font-42, %font-42 {@include u.font-size(42)}
+.font-40, %font-40 {@include u.font-size(40)}
+.font-38, %font-38 {@include u.font-size(38)}
+.font-36, %font-36 {@include u.font-size(36)}
+.font-30, %font-30 {@include u.font-size(30)}
+.font-26, %font-26 {@include u.font-size(26)}
+.font-24, %font-24 {@include u.font-size(24)}
+.font-22, %font-22 {@include u.font-size(22)}
+.font-20, %font-20 {@include u.font-size(20)}
+.font-18, %font-18 {@include u.font-size(18)}
+.font-16, %font-16 {@include u.font-size(16)}
+
+@mixin font-handicapped($size) {
+  $size: $size * 0.66;
+  @include u.font-size($size)
+}
+
+@include media-handicapped {
+  .font-90, %font-90 {@include font-handicapped(90)}
+  .font-72, %font-72 {@include font-handicapped(72)}
+  .font-60, %font-60 {@include font-handicapped(60)}
+  .font-54, %font-54 {@include font-handicapped(54)}
+  .font-50, %font-50 {@include font-handicapped(50)}
+  .font-48, %font-48 {@include font-handicapped(48)}
+  .font-44, %font-44 {@include font-handicapped(44)}
+  .font-42, %font-42 {@include font-handicapped(42)}
+  .font-40, %font-40 {@include font-handicapped(40)}
+  .font-38, %font-38 {@include font-handicapped(38)}
+  .font-36, %font-36 {@include font-handicapped(36)}
+  .font-30, %font-30 {@include font-handicapped(30)}
+  .font-26, %font-26 {@include font-handicapped(26)}
+  .font-24, %font-24 {@include font-handicapped(24)}
+  .font-22, %font-22 {@include font-handicapped(22)}
+  .font-20, %font-20 {@include font-handicapped(20)}
+  .font-18, %font-18 {@include font-handicapped(18)}
+  .font-16, %font-16 {@include font-handicapped(16)}
+}
+
+// Brand Heading
+%brand-heading {
+  &:not(.--no-trans-cap) {@extend .trans-cap}
+}
+.brand-h1, %brand-h1 {
+  @extend .fg-white, .line-h-1x2, .ow-word, .relative, .w-full, %brand-heading;
+
+  &:not(.--left) {@extend .col-cen-cen, .text-center}
+  &:not(.--no-mar-t) {margin-top: 4.5vh}
+}
+.brand-h2, %brand-h2 {
+  @extend .ow-word, .w-full, %brand-heading;
+
+  &:not(.--left) {@extend .text-center}
+  &:not(.--no-mar-t) {margin-top: 3.25vh}
+}
+
+.font-h1,     %font-h1       {@extend .font-90}
+.font-h2,     %font-h2       {@extend .font-72}
+.font-h3,     %font-h3       {@extend .font-60}
+.font-h4,     %font-h4       {@extend .font-40}
+
+.line-h-1,    %line-h-1      {line-height: 1}
+.line-h-1x2,  %line-h-1x2    {line-height: 1.2}
+.line-h-1x3,  %line-h-1x3    {line-height: 1.3}
+.line-h-1x5,  %line-h-1x5    {line-height: 1.5}
+
+.wei-regular, %wei-regular   {font-weight: var(--f-wei-regular)}
+.wei-medium,  %wei-medium    {font-weight: var(--f-wei-medium)}  // standard weight using for all site
+.wei-bold,    %wei-bold      {font-weight: var(--f-wei-bold)}
+
+.ff-custom,   %ff-custom     {font-family: 'AppFontCustom';@extend %wei-regular} // Custom Font
+
+.text-left,    %text-left    {text-align: left}
+.text-center,  %text-center  {text-align: center}
+.text-right,   %text-right   {text-align: right}
+.text-justify, %text-justify {text-align: justify}
+
+// Transform
+.trans-none,  %trans-none    {text-transform: none}
+.trans-upper, %trans-upper   {text-transform: uppercase}
+.trans-lower, %trans-lower   {text-transform: lowercase}
+.trans-cap,   %trans-cap     {text-transform: capitalize}
+
+//
+.ow-word,     %ow-word       {overflow-wrap: break-word}
+.wb-all,      %wb-all        {word-break: break-all}
+.wb-word,     %wb-word       {word-break: break-word}
+.ws-normal,   %ws-normal     {white-space: normal}
+.ws-nowrap,   %ws-nowrap     {white-space: nowrap}
+
+@include media-handicapped {
+  .brand-h1, %brand-h1,
+  .brand-h2, %brand-h2 {&:not(.--no-mar-t) {margin-top: 2.25vh}}
+}
+@include media-small-tablet {
+  .brand-h1, %brand-h1,
+  .brand-h2, %brand-h2 {margin-top: 0 !important}
+
+  .font-40, %font-40,
+  .font-44, %font-44 {font-size: 20px}
+  .font-50, %font-50,
+  .font-60, %font-60 {font-size: 32px}
+}

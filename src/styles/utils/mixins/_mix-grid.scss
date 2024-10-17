@@ -1,0 +1,54 @@
+@use '../variables' as var;
+
+$row-gap: 0.5rem;
+
+@mixin grid-row($col-num) {
+  $width: 0;
+
+  @if $col-num <= 0 {@error 'Number of columns must be greater than zero'}
+
+  @if $col-num <= 1 {$width: 100%}
+  @else             {$width: calc((100% / #{$col-num}) - ((#{$row-gap} * (#{$col-num} - 1)) / #{$col-num}))}
+
+  > * {width: $width}
+
+  &.--no-gap, &.--no-gap-h {> * {width: calc(100% / #{$col-num})}}
+}
+
+// TODO: replace/remove
+@mixin grid($items, $gap: $col-gutter) {
+  $gutter-h: px-to-rem($gap);
+  $gutter-v: px-to-rem($gap);
+
+  > * {flex-basis: auto}
+
+  &:not(.--no-mar-r) {
+    > * {
+      width: grid-item-width($items, $gutter-h);
+
+      @if $items > 0 {
+        &:not(:nth-child(-n)):not(:last-child)          {@include mar-r(0)}
+        &:not(:nth-child(#{$items}n)):not(:last-child)  {
+          margin-right: $gutter-h;
+          @include media-small-tablet {margin-right: 1rem}
+        }
+      }
+    }
+  }
+
+  &:not(.--no-mar-t) {
+    margin-top: - ($gutter-v);
+    @include media-small-tablet {margin-top: - 1rem}
+
+    > * {
+      width: grid-item-width($items, $gutter-h);
+      @include media-small-tablet {width: grid-item-width($items, 1rem)}
+
+      @if $items > 0                            {margin-top: $gutter-v;@include media-small-tablet {margin-top: 1rem}}
+      @else if $items == 1 {&:not(:last-child)  {margin-top: $gutter-v;@include media-small-tablet {margin-top: 1rem}}}
+    }
+  }
+
+  &.--no-mar-r {> *{width: grid-item-width($items, 0)}}
+  &.--no-mar-t {> *{@include mar-b(0)}}
+}

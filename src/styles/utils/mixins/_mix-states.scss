@@ -1,0 +1,21 @@
+@mixin hover            {&:hover {@content}}
+@mixin focus            {&:focus {@content}}
+@mixin hover-focus      {&:hover, &:focus {@content}}
+@mixin checked          {&:checked {@content}}
+@mixin not-readonly     {&:not([readonly]) {@content}}
+@mixin readonly         {&[readonly] {@content}}
+@mixin not-hidden       {&:not([hidden]) {@content}}
+@mixin hidden           {&[hidden] {@content}}
+@mixin not-disabled     {&:not(:disabled):not([disabled]):not(.--disabled) {@content}}
+@mixin disabled         {&:disabled, &[disabled], &.--disabled {@content}}
+@mixin not-click        {&:not(:active) {@content}}
+@mixin click            {&:active {@content}}
+@mixin not-active       {&:not(.--active) {@content}}
+@mixin active           {&.--active {@content}}
+@mixin if-href          {&[href]:not([href='']) {@content}}
+@mixin if-current       {&[aria-current]:not([aria-current='']):not([aria-current=false]) {@content}}
+@mixin if-not-current   {&:not([aria-current]), &[aria-current=''], &[aria-current=false] {@content}}
+@mixin if-checked       {&[aria-checked]:not([aria-checked='']):not([aria-checked=false]) {@content}}
+@mixin if-not-checked   {&[aria-checked=''], &[aria-checked=false] {@content}}
+@mixin if-selected      {&[aria-selected]:not([aria-selected='']):not([aria-selected=false]) {@content}}
+@mixin if-not-selected  {&:not([aria-selected]) {@content}}

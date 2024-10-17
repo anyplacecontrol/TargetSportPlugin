@@ -1,0 +1,23 @@
+@use 'sass:math';
+@use '../variables' as var;
+@use '../functions' as fun;
+
+@mixin fluid-font($max, $min) {
+  $maw: var.$page-max-width;
+  $miw: var.$page-min-width;
+
+  $font-scale: math.div($max - $min, $maw - $miw);
+
+  font-size: #{$min}px;
+
+  @media screen and (min-width: #{$miw}px) {
+    font-size: calc(#{$min}px + #{$font-scale} * (100vw - #{$miw}px));
+  }
+
+  @media screen and (min-width: #{$maw}px) {
+    font-size: #{$max}px;
+  }
+}
+
+// @mixin font-size($px) {font-size: fun.px-to-rem($px)}
+@mixin font-size($val) {font-size: #{fun.px-to-vh($val)}vh}

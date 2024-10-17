@@ -1,0 +1,37 @@
+@use "sass:math";
+@use '../utils/variables' as var;
+
+@function unit-or-zero($val, $unit: 'rem') {
+  @return if($val == 0, 0, #{$val}#{$unit})
+}
+
+@function important($val) {
+  @return if($val, !important, null)
+}
+
+// https://www.sitepoint.com/hsb-colors-with-sass/
+@function hsb($h-hsb, $s-hsb, $b-hsb, $a: 1) {
+  $l-hsl: math.div($b-hsb , 2) * (2 - math.div($s-hsb , 100));
+  $s-hsl: math.div(($b-hsb * $s-hsb) , if($l-hsl < 50, $l-hsl * 2, 200 - $l-hsl * 2));
+  @return hsla($h-hsb, $s-hsl * 1%, $l-hsl * 1%, $a);
+}
+
+// Calculating REM
+@function px-to-rem($px) {@return math.div($px, 16) + rem}
+
+// Grid
+@function grid-item-width($items, $space) {
+  @return if(
+      $items > 0 and $space != 0,
+      calc((100% - (#{$space} * #{$items - 1})) / #{$items}),
+      calc(100% / #{$items})
+  );
+}
+
+// Calculating column width with gutter
+@function col-width ($cols) {
+  @if $cols == 1 {@return var.$col-width}
+  @else          {@return $cols * var.$col-width + ($cols - 1) * var.$col-gutter}
+}
+
+@function px-to-vh($px) {@return math.div($px, 19.2)}

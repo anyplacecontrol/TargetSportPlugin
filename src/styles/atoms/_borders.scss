@@ -1,0 +1,22 @@
+@use '../utils' as u;
+
+// Border Radius
+%round-to-content,
+.round-to-content  {@include u.bdrs(_, 99999px)}
+%circle,
+.circle            {@include u.circle}
+%round-std-half    {@include u.bdrs(_, var(--rad-std-half))}
+%round-std         {@include u.bdrs(_, var(--rad-std))}
+%round-std-x2,
+.round-std-x2      {@include u.bdrs(_, var(--rad-std-x2))}
+%round-std-x3,
+.round-std-x3      {@include u.bdrs(_, var(--rad-std-x3))}
+%round-std-x4      {@include u.bdrs(_, var(--rad-std-x4))}
+
+// Borders
+%brd-transparent-1    {@include u.brd(_, transparent, 1px)}
+%brd-transparent-t-1  {@include u.brd(t, transparent, 1px)}
+%brd-transparent-2    {@include u.brd(_, transparent, 2px)}
+%brd-transparent-t-2  {@include u.brd(t, transparent, 2px)}
+%brd-transparent-3,
+.brd-transparent-3    {@include u.brd(_, transparent, 3px)}

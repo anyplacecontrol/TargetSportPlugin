@@ -1,0 +1,9 @@
+.header {
+  @extend .col-cen-cen, .bg-cover, .w-full;
+
+  .content-width {@extend .full-sz}
+
+  &:not(.--categories) {.content-width {@extend .row-cen-cen}}
+  &.--ads {@extend .over-hidden, .relative}
+  &.--small {.content-width {@extend .row-bet-cen}}
+}

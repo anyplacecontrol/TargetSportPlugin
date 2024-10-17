@@ -1,0 +1,63 @@
+@mixin handicapped        {.handicapped-mode-active     {@content}}
+
+@mixin media-handicapped  {@media (min-width: 960px) and (min-height: 1024px) {@include handicapped {@content}}}
+@mixin media-small-tablet {@media (max-width: 800px) and (max-height: 600px) {@content}}
+
+@mixin media-landscape    {@media (orientation: landscape)  {@content}}
+@mixin media-portrait     {@media (orientation: portrait)   {@content}}
+
+@mixin media($px)         {@media (max-width: #{$px}px)     {@content}}
+
+@mixin med-d-xl           {@media (max-width: 1920px)       {@content}}
+@mixin med-d-lg           {@media (max-width: 1660px)       {@content}}
+@mixin med-d-md           {@media (max-width: 1440px)       {@content}}
+@mixin med-d-sm           {@media (max-width: 1360px)       {@content}}
+@mixin med-d-xs           {@media (max-width: 1280px)       {@content}}
+
+@mixin med-t-xl           {@media (max-width: 1024px)       {@content}}
+@mixin med-t-lg           {@media (max-width: 960px)        {@content}}
+@mixin med-t-md           {@media (max-width: 860px)        {@content}}
+@mixin med-t-sm           {@media (max-width: 768px)        {@content}}
+
+@mixin med-m-xl           {@media (max-width: 640px)        {@content}}
+@mixin med-m-lg           {@media (max-width: 540px)        {@content}}
+@mixin med-m-md           {@media (max-width: 480px)        {@content}}
+@mixin med-m-sm           {@media (max-width: 425px)        {@content}}
+@mixin med-m-xs           {@media (max-width: 375px)        {@content}}
+
+// Media query for screens with a minimum height of 768px and a maximum height of 1024px (portrait tablets)
+@mixin media-portrait-tablet {
+  @media (min-height: 768px) and (max-height: 1024px) and (orientation: portrait) {@content}
+}
+
+// Media query for screens with a minimum height of 1024px and a maximum height of 1366px
+// (portrait small desktop screens)
+@mixin media-portrait-large {
+  @media (min-height: 1024px) and (max-height: 1366px) and (orientation: portrait) {@content}
+}
+
+// Media query for screens with a minimum resolution of 2dppx (retina displays)
+@mixin media-retina {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {@content}
+}
+
+// Media query for screens with a minimum resolution of 3dppx (high-density retina displays)
+@mixin media-high-density-retina {
+  @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {@content}
+}
+
+// Media query for screens with a minimum resolution of 4dppx (ultra-high-density retina displays)
+@mixin media-ultra-high-density-retina {
+  @media (-webkit-min-device-pixel-ratio: 4), (min-resolution: 384dpi), (min-resolution: 4dppx) {@content}
+}
+
+// TODO: Old --> replace/remove
+@mixin media-h-1860       {@media (max-height: 1860px)  {@content}}
+@mixin media-h-1440       {@media (max-height: 1440px)  {@content}}
+@mixin media-h-1240       {@media (max-height: 1240px)  {@content}}
+@mixin media-h-1024       {@media (max-height: 1024px)  {@content}}
+@mixin media-h-960        {@media (max-height: 960px)   {@content}}
+@mixin media-h-860        {@media (max-height: 860px)   {@content}}
+@mixin media-h-768        {@media (max-height: 768px)   {@content}}
+@mixin media-h-640        {@media (max-height: 640px)   {@content}}
+@mixin media-h-480        {@media (max-height: 480px)   {@content}}

@@ -1,0 +1,29 @@
+.cart {@extend .col-sta-sta, .w-full}
+.cart-item {
+  @extend .col-sta-sta, .bg-white, .round-std-x2, .w-full, .gap-v-0x5;
+  @include pad(2.5);
+  @include not-first-chi-not-only {margin-top: 2vh}
+}
+.cart-item-box {@extend .row-bet-cen, .w-full, .gap-h-1}
+.cart-title,
+.cart-item-info {@extend .font-36, .ow-word, .w-full}
+
+.cart-title {
+  @extend .trans-cap;
+  width: calc(100% - 160px - 8rem - 3rem);
+}
+.cart-sum {
+  @extend .font-36, .line-h-1x2, .wei-bold, .text-right;
+  @include miw(8);
+}
+.cart-remove {
+  @extend .col-cen-cen, .bg-transparent;
+  .feather {@include sqr(2.5)}
+}
+
+@include media-handicapped {
+  .cart-item {@include pad(1.5)}
+  .cart-title {width: calc(100% - 160px - 6rem - 3rem)}
+  .cart-sum {@include miw(6)}
+  .cart-remove {.feather {@include sqr(1.5)}}
+}

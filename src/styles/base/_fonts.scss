@@ -1,0 +1,14 @@
+@use '../utils/variables' as var;
+
+@mixin font($file-name: 'font1', $weight: '400', $family-name: #{var.$font-plain-text}) {
+  font-family: '#{$family-name}';
+  src: url('../fonts/#{$file-name}.woff2') format('woff2');
+  font-weight: #{$weight};
+  font-display: swap;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+}
+@font-face {@include font}
+@font-face {@include font('font2', '500')}
+@font-face {@include font('font3', '700')}
+@font-face {@include font('font4', '400', #{var.$font-titles})}

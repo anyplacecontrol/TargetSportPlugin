@@ -1,0 +1,8 @@
+.keyboard {max-width: 100% !important;}
+.keyboard__inner {@extend .content-width}
+.keyboard-button {
+  @extend .font-h4, .wei-bold;
+  @include h-vh(5);
+  svg {height: 1.25em;width: 1.25em}
+  @include media-small-tablet {@include h-vh(7.5)}
+}

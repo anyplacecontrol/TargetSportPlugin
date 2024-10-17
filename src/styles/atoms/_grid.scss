@@ -1,0 +1,40 @@
+@use '../utils' as u;
+
+// Css Grid
+%grid-css {
+  @extend %w-full;
+  display: grid;
+  gap: u.$row-gap;
+}
+
+// Flex Grid
+%grid-flex {
+  @extend %flex-wrap, %w-full;
+  gap: u.$row-gap;
+
+  &.--default   {@extend %row-sta-str}
+  &.--center    {@extend %row-cen-str}
+
+  &.--no-gap    {@include u.gap(0)}
+  &.--no-gap-h  {@include u.gap-h-n(0)}
+  &.--no-gap-v  {@include u.gap-v(0)}
+}
+
+%row-2 {@include u.grid-row(2)}
+%row-3 {@include u.grid-row(3)}
+%row-4 {@include u.grid-row(4)}
+%row-5 {@include u.grid-row(5)}
+
+// TODO: Old Styles --> Replace --> Remove
+.grid-1, %grid-1 {@include u.grid(1)}
+.grid-2, %grid-2 {@include u.grid(2)}
+.grid-3, %grid-3 {@include u.grid(3)}
+.grid-4, %grid-4 {@include u.grid(4)}
+.grid-5, %grid-5 {@include u.grid(5)}
+
+.grid-core, %grid-core {
+  &:not(.--center) {@extend .row-sta-str}
+  &.--center       {@extend .row-cen-str}
+
+  @extend .flex-wrap, .w-full;
+}

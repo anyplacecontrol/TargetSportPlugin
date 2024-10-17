@@ -1,0 +1,50 @@
+.languages {
+  @extend .abs-l, .content-width;
+  bottom: 8vh;
+}
+.language {
+  @extend .row-cen-cen, .round-std-x2, .font-h4, .w-full;
+  @include h-vh(5.25);
+  @include pad(0.25);
+}
+.languages-caro {
+  @extend .row-cen-cen, .gap-h-0x5;
+  @include mar-h(-0.5);
+  display: flex !important;
+  width: calc(100% + 1rem);
+
+  .slick-track {@extend .row-sta-str}
+
+  .slick-slide {
+    @include pad-v(0.25);
+    @include pad-h(0.5);
+    height: auto !important;
+  }
+
+  > * {@extend .col-sta-cen, .w-full}
+}
+
+.slick-arrow {
+  @extend .col-cen-cen, .bg-white, .bg-no-repeat, .round-std-x2;
+  @include sqr(4);
+  background-size: 2.25rem;
+  font-size: 0;
+
+  &.slick-prev {
+    background-image: url(../img/svg/arrow-point-to-left.svg);
+    background-position: 45% 50%;
+  }
+  &.slick-next {
+    background-image: url(../img/svg/arrow-point-to-right.svg);
+    background-position: 55% 50%;
+  }
+
+  &.slick-disabled {@extend .cur-not, .opacity-0x5}
+}
+
+@include media-handicapped {
+  .languages {bottom: 5.5vh}
+}
+@include media-small-tablet {
+  .languages {bottom: 11vh}
+}

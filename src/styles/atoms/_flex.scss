@@ -1,0 +1,63 @@
+%row-sta-sta,
+.row-sta-sta {@include flex-layout(row, sta, sta)}
+%row-sta-str,
+.row-sta-str {@include flex-layout(row, sta, str)}
+%row-sta-cen,
+.row-sta-cen {@include flex-layout(row, sta, cen)}
+%row-sta-end {@include flex-layout(row, sta, end)}
+%row-cen-cen,
+.row-cen-cen {@include flex-layout(row, cen, cen)}
+%row-cen-str,
+.row-cen-str {@include flex-layout(row, cen, str)}
+%row-bet-sta,
+.row-bet-sta {@include flex-layout(row, bet, sta)}
+%row-bet-cen,
+.row-bet-cen {@include flex-layout(row, bet, cen)}
+%row-end-cen,
+.row-end-cen {@include flex-layout(row, end, cen)}
+%col-sta-sta,
+.col-sta-sta {@include flex-layout(col, sta, sta)}
+%col-sta-cen,
+.col-sta-cen {@include flex-layout(col, sta, cen)}
+%col-sta-end,
+.col-sta-end {@include flex-layout(col, sta, end)}
+%col-sta-str,
+.col-sta-str {@include flex-layout(col, sta, str)}
+%col-end-str,
+.col-end-str {@include flex-layout(col, end, str)}
+%col-cen-sta,
+.col-cen-sta {@include flex-layout(col, cen, sta)}
+%col-cen-cen,
+.col-cen-cen {@include flex-layout(col, cen, cen)}
+%col-end-sta,
+.col-end-sta {@include flex-layout(col, end, sta)}
+%col-end-cen,
+.col-end-cen {@include flex-layout(col, end, cen)}
+%col-bet-sta,
+.col-bet-sta {@include flex-layout(col, bet, sta)}
+
+%flex        {@include dis-flex}
+%inl-flex    {@include dis-inl-flex}
+%row         {@include flex-dir(row)}
+%col         {@include flex-dir(col)}
+%flex-wrap,
+.flex-wrap   {@include flex-wrap}
+%flex-nowrap {@include flex-nowrap}
+%flex-0      {@include flex(0 0)}
+%flex-1,
+.flex-1      {@include flex(1 0)}
+%flex-2      {@include flex(2 0)}
+%flex-3      {@include flex(3 0)}
+%flex-5,
+.flex-5      {@include flex(5 0)}
+
+%flex-noshrink {@include flex-shrink(0)}
+
+%ord-0 {@include ord(0)}
+%ord-1 {@include ord(1)}
+%ord-2 {@include ord(2)}
+
+// Old styles
+// TODO: Replace --> remove
+.flex {display: flex;flex-wrap: wrap}
+.flex-container {margin: 0 -15px}

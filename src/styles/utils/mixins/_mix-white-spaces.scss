@@ -1,0 +1,35 @@
+@use '../functions' as fun;
+@use 'mix-pseudo-elements' as pe;
+
+@mixin core($prop: 'margin', $all: null, $t: null, $r: null, $b: null, $l: null, $imp: false) {
+  @if $all != null {#{$prop}:        fun.unit-or-zero($all) fun.important($imp)}
+  @if $t   != null {#{$prop}-top:    fun.unit-or-zero($t)   fun.important($imp)}
+  @if $r   != null {#{$prop}-right:  fun.unit-or-zero($r)   fun.important($imp)}
+  @if $b   != null {#{$prop}-bottom: fun.unit-or-zero($b)   fun.important($imp)}
+  @if $l   != null {#{$prop}-left:   fun.unit-or-zero($l)   fun.important($imp)}
+}
+
+@mixin mar($val, $imp: false)   {@include core($all: $val, $imp: $imp)}
+@mixin mar-t($val, $imp: false) {@include core($t: $val, $imp: $imp)}
+@mixin mar-r($val, $imp: false) {@include core($r: $val, $imp: $imp)}
+@mixin mar-b($val, $imp: false) {@include core($b: $val, $imp: $imp)}
+@mixin mar-l($val, $imp: false) {@include core($l: $val, $imp: $imp)}
+@mixin mar-v($val, $imp: false) {@include core($t: $val, $b: $val, $imp: $imp)}
+@mixin mar-h($val, $imp: false) {@include core($r: $val, $l: $val, $imp: $imp)}
+
+@mixin pad($val, $imp: false)   {@include core($prop: 'padding', $all: $val, $imp: $imp)}
+@mixin pad-t($val, $imp: false) {@include core($prop: 'padding', $t: $val, $imp: $imp)}
+@mixin pad-r($val, $imp: false) {@include core($prop: 'padding', $r: $val, $imp: $imp)}
+@mixin pad-b($val, $imp: false) {@include core($prop: 'padding', $b: $val, $imp: $imp)}
+@mixin pad-l($val, $imp: false) {@include core($prop: 'padding', $l: $val, $imp: $imp)}
+@mixin pad-v($val, $imp: false) {@include core($prop: 'padding', $t: $val, $b: $val, $imp: $imp)}
+@mixin pad-h($val, $imp: false) {@include core($prop: 'padding', $r: $val, $l: $val, $imp: $imp)}
+
+@mixin gap($val, $imp: false)     {gap:        fun.unit-or-zero($val) fun.important($imp)}
+@mixin gap-v-n($val, $imp: false) {row-gap:    fun.unit-or-zero($val) fun.important($imp)}
+@mixin gap-h-n($val, $imp: false) {column-gap: fun.unit-or-zero($val) fun.important($imp)}
+
+// TODO: Don't do it before we'll update WebView
+// Replace/Remove it in the future
+@mixin gap-v($val) {> :not(:first-child):not(:only-child) {@include mar-t($val)}}
+@mixin gap-h($val) {> :not([hidden]):not(.hidden-input) + :not([hidden]):not(.hidden-input) {@include mar-l($val)}}

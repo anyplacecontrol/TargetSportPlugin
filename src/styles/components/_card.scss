@@ -1,0 +1,32 @@
+.card {
+  @extend %col-cen-cen, %round-std-x4, %relative;
+  @include h-vh(30);
+  @include pad(2);
+  width: 60%;
+  
+  .feather {width: 75%;height: 75%}
+}
+.card-image {@include h-vh(40)}
+.card-types {
+  @extend %row-cen-cen, %flex-wrap, %w-full;
+  @include mar-t(-0.5);
+}
+.card-type {
+  @extend %col-cen-cen;
+  @include mar-t(0.5);
+  @include mar-h(0.5);
+  
+  .feather {
+    @include maw(8.5);
+    @include h(3)
+  }
+}
+
+@include media-handicapped {
+  .card {
+    width: 50%;
+    @include h-vh(20);
+  }
+  .card-image {@include h-vh(30)}
+  .card-type {.feather {@include maw(5);@include h(2.25)}}
+}

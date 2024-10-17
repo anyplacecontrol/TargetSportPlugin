@@ -1,0 +1,95 @@
+@use '../utils' as u;
+
+.form-choice {
+  @extend %row-sta-cen, %cur-point, %w-full, %gap-h-1;
+
+  &.--checked {}
+}
+.form-choice-icon-box {
+  @extend %col-cen-cen, %bg-white, %brd-transparent-1, %relative;
+  @include u.sqr(3.75);
+}
+.form-choice-icon {@extend %img-size-std}
+
+// New Input
+%form-field-theme {
+  @extend %bg-white, %brd-transparent-2, %round-std-x3, %shad-inset;
+
+  @include u.focus {@extend %brd-transparent-2, %shad-none}
+
+  &.is--error {
+    color: var(--def-col-error) !important;
+    border-color: var(--def-col-error) !important;
+  }
+}
+%form-field-size {
+  @extend %w-full;
+  @include u.pad-h(2);
+}
+%form-field-typography {@extend %font-30, %wei-regular}
+%form-field-core {@extend %form-field-theme, %form-field-size, %form-field-typography}
+.form-field, %form-field {@extend %fg-pale, %form-field-core}
+.form-input, %form-input {
+  @extend %form-field;
+  @include u.h(5.25);
+}
+.form-text-area {
+  @extend %form-field;
+  @include u.h-vh(13);
+  @include u.pad-v(1);
+
+  &.--long {@include u.h-vh(20.5)}
+}
+
+// New Checkbox
+.checkbox-icon {
+  @extend %col-cen-cen, %bg-white, %brd-transparent-1, %round-std;
+  @include u.sqr(3);
+}
+.checkbox-icon-box {@extend %img-size-std}
+.checkbox-image-box {
+  @extend %col-cen-cen, %round-std-half;
+  @include u.sqr(7);
+  @include u.pad(0.5);
+}
+
+// Select
+.form-select {@extend %col-sta-sta, %relative, %w-full}
+.form-select-btn {
+  @extend %row-sta-cen, %fg-black, %cur-point, %relative, %form-field-core;
+  @include u.h(5.25);
+  @include u.pad-r(4.25);
+}
+.form-select-arrow {
+  @extend %abs-r;
+  @include u.sqr(1.75);
+  @include u.mar-t(0.25);
+  @include u.mar-r(1.25);
+
+  @include u.active {transform: scale(1, -1)}
+}
+.form-select-list {
+  @extend %col-sta-sta, %bg-white, %round-std-x3, %shad-medium;
+  @extend %over-hidden, %abs-t-100p, %w-full;
+}
+.form-select-list-item {
+  @extend %bg-white, %cur-point, %font-20, %text-left, %wei-medium, %w-full, %anim;
+  @include u.pad-v(1.5);
+  @include u.pad-h(2);
+
+  @include u.not-first-chi-not-only {@extend %brd-transparent-t-1}
+  @include u.active {background-color: var(--col-light)}
+}
+
+@include u.media-handicapped {
+  .form-input         {@include u.h(4);@include u.pad-h(1)}
+  .checkbox-icon      {@include u.sqr(2.25)}
+  .checkbox-image-box {@include u.sqr(4.75)}
+}
+@include u.media-small-tablet {
+  .form-choice-icon-box {@include u.sqr(2)}
+  .form-input {
+    @include u.h(3.25);
+    @include u.pad-h(1);
+  }
+}

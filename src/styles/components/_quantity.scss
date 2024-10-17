@@ -1,0 +1,79 @@
+@use '../utils' as u;
+
+.quantity {
+  @extend %row-sta-str, %bg-white;
+  
+  > * {@extend %bg-white}
+  
+  &.--std {
+    @extend %round-std, %shad-light;
+    
+    > * {@extend %round-std}
+  }
+  &.--new {
+    @extend %brd-transparent-2;
+    width: auto !important;
+    
+    .quantity-button {
+      @include u.sqr(6);
+      
+      &.--minus {
+        @include u.brd(r, transparent, 2px);
+      }
+      &.--plus  {
+        @include u.brd(l, transparent, 2px);
+      }
+    }
+    .quantity-input {
+      @extend %font-36;
+      @include u.w(12.5);
+    }
+  }
+}
+.quantity-button {
+  @extend %col-cen-cen, %bg-white;
+  
+  .feather {@extend %img-size-std}
+}
+.quantity-input {
+  @extend %text-center, %w-full;
+  height: auto !important;
+}
+
+.modal, .cart {
+  .quantity        {@include u.w(10)}
+  .quantity-button {@include u.sqr(3.25)}
+  .quantity-input  {@extend %font-36}
+}
+
+.order {
+  .quantity {
+    @extend %z-index-2;
+    @include u.w(5.625);
+    @include u.mar-l(-5.625);
+  }
+  .quantity-button  {@include u.sqr(2)}
+  .quantity-input   {@extend %font-20}
+}
+
+@include u.media-handicapped {
+  .quantity {
+    .quantity-button {@include u.sqr(4)}
+    .quantity-input {@include u.w(6.5)}
+  }
+  
+  .modal, .cart {
+    .quantity         {@include u.w(7.5)}
+    .quantity-button  {@include u.sqr(2)}
+    .quantity-input   {@include u.w(3.5)}
+  }
+  
+  .order {
+    .quantity {
+      @include u.w(5);
+      @include u.mar-l(-5);
+    }
+    .quantity-input {@include u.w(2)}
+    .quantity-button  {@include u.sqr(1.5)}
+  }
+}

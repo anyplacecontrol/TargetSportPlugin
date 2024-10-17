@@ -1,0 +1,77 @@
+.sleep-top {
+  @extend .col-sta-str, .over-hidden, .flex-5, %relative, %w-full;
+
+  .content-width {
+    @extend .col-sta-cen, .flex-1;
+    padding-top: 10%;
+  }
+}
+.sleep-bg {
+  @extend .bg-no-repeat, .bg-size-cover, .abs-t-l, .full-sz;
+
+  &:not(.--dispatching) {background-position: 50% 0}
+  &.--dispatching {background-position: 50% 100%}
+
+  &.--with-animation {animation: animatedBackground 20s infinite}
+}
+@include keyframes('animatedBackground') {
+  0%    {transform: matrix(1, 0, 0, 1, 0, 0)}
+  66%   {transform: matrix(1.15, 0, 0, 1.15, 0, 0)}
+  100%  {transform: matrix(1, 0, 0, 1, 0, 0)}
+}
+
+.sleep-touch {
+  @extend .col-cen-cen, .circle, .abs-center, .z-index-1;
+  border: 5px solid var(--def-col-white);
+  @include sqr(16);
+  margin-top: 7.5%;
+  animation: pulse 2s infinite;
+
+  @include before {
+    background-color: var(--def-col-white);
+    @extend .circle, .abs-center, .z-index-backward;
+    width: 90%;
+    height: 90%;
+  }
+}
+@include keyframes('pulse') {
+  0%    {box-shadow: 0 0 0 rgba(236, 234, 223, 1)}
+  100%  {box-shadow: 0 0 0 70px rgba(236, 234, 223, 0)}
+}
+
+.sleep-touch-icon {
+  height: 50%;
+}
+.sleep-bottom {
+  @extend .col-cen-cen, .dark-blue, .flex-1, %relative, %w-full;
+  .sleep-info {@extend .abs-r, .abs-center-y}
+}
+.sleep-info {
+  @extend .col-cen-cen;
+  background-color: var(--col-pale);
+  @extend .circle;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+  @include sqr(6.25);
+
+  &.active {
+    border: solid 2px var(--def-col-white);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  @include media-h-1024 {@include sqr(4.5)}
+  @include media-h-640  {@include sqr(2.75)}
+
+  @include med-t-lg {@include sqr(4.5)}
+  @include med-m-xl {@include sqr(2.75)}
+}
+
+@include media-handicapped {
+  .sleep-info {@include sqr(4)}
+}
+@include media-small-tablet {
+  .sleep-touch {@include sqr(7)}
+  .sleep-info {
+    @include sqr(3);
+    &.--handicap {@include d-none}
+  }
+}

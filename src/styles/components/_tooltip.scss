@@ -1,0 +1,88 @@
+.tooltip__button {
+  background-color: var(--col-accent-dark);
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  border: 1px solid #B6BABC;
+  @extend .circle;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+  color: #CBC6BA;
+
+  cursor: pointer;
+
+  width: 24px;
+  height: 24px;
+
+  margin-left: 5px;
+
+  position: relative;
+  z-index: 2;
+
+  &:before {
+    content: '?';
+
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+
+    @extend .full-sz;
+
+    top: 0;
+    left: 0;
+
+    position: absolute;
+    z-index: 1;
+  }
+
+  &:hover {
+    background-color: var(--col-accent);
+    border: 1px solid var(--col-accent);
+  }
+
+  &.active {
+    &:before {
+      content: 'x';
+
+      line-height: 16px;
+    }
+
+    &:after {
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+
+      border-bottom: 10px solid #FFFFFF;
+
+      content: '';
+
+      width: 0;
+      height: 0;
+
+      bottom: -11px;
+      right: 0;
+
+      position: absolute;
+      z-index: 1;
+    }
+  }
+}
+
+.tooltip__balloon {
+  @extend .bg-white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+  border-radius: 8px;
+  color: #818B9A;
+
+  font-size: 14px;
+  line-height: 1.5;
+  @extend .ff-custom;
+
+  @extend .w-full;
+
+  top: 100%;
+  left: 0;
+
+  margin-top: 5px;
+  padding: 15px;
+
+  position: absolute;
+  z-index: 0;
+}
