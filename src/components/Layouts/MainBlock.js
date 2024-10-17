@@ -1,17 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import * as u from '../../shared/utils/sharedFunctions'
 
 export const MainBlock = ({className: cls, style, children}) => {
   return (
     <div
-      style={{
-        ...style,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'stretch',
-        alignItems: 'stretch',
-        paddingTop: '2.5vh'
-      }}
+      className={u.createClass(`col-sta-str gap-v-std`, {}, cls)}
+      style={style}
     >
       {children}
     </div>
