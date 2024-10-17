@@ -1,6 +1,6 @@
 @use '../utils' as u;
 
-#root {@extend .col-sta-str, .w-full}
+#root {@extend .col-sta-str, .w-full;min-height: 100dvh;}
 #main {
   @extend .col-end-str, .bg-black, .over-hidden, .flex-1, .miw-content, .w-full;
   min-height: 480px;
