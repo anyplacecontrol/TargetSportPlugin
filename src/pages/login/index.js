@@ -8,8 +8,15 @@ import {InputField} from '../../shared/components/InputField'
 import {getBrandingStyle} from '../../shared/utils/brandingStyles'
 import {LeavePluginLink} from '../../components/LeavePluginLink'
 import {ButtonsRender} from '../../shared/components/ButtonsRender'
+import {useDispatch} from 'react-redux'
+import * as uiActions from '../../redux/modules/ui'
 
 export const Login = () => {
+  const dispatch = useDispatch()
+  const onLoginClick = () => {
+    dispatch(uiActions.showBackdrop(true))
+  }
+
   const keyboardEmail = useKeyboard()
   const keyboardPassword = useKeyboard()
 
@@ -70,7 +77,9 @@ export const Login = () => {
               isVertical
               buttons={[
                 {
-                  onClick: () => {},
+                  onClick: () => {
+                    onLoginClick()
+                  },
                   title: 'Submit',
                   theme: 'accentButton'
                 }
