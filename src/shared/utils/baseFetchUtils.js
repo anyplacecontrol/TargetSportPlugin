@@ -73,7 +73,7 @@ export async function baseFetchJSON(url, init = {}, headers = null, timeout = 30
       else throw e
     }
   } catch (error) {
-    if (catchError) catchError(error, response)
+    if (catchError) catchError(error, response, url, init)
   } finally {
     clearTimeout(timeoutId)
   }
