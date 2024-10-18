@@ -29,7 +29,7 @@ export const AlertModal = ({defaultButtonHandler, alertData, isHandicappedMode})
       >
         {text}
       </BtnBig>
-    )
+    )  
 
     if (!alertData.buttons) {
       return renderButton('OK', defaultButtonHandler)

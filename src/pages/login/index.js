@@ -9,13 +9,12 @@ import {getBrandingStyle} from '../../shared/utils/brandingStyles'
 import {LeavePluginLink} from '../../components/LeavePluginLink'
 import {ButtonsRender} from '../../shared/components/ButtonsRender'
 import {useDispatch} from 'react-redux'
-import * as uiActions from '../../redux/modules/ui'
+import * as membershipActions from '../../redux/modules/membership'
 
 export const Login = () => {
   const dispatch = useDispatch()
   const onLoginClick = () => {
-    //dispatch(uiActtions.showBackdrop(true))
-    dispatch(uiActions.showAlert('Success', 'Cache was cleared'))
+    dispatch(membershipActions.loginToMembership(keyboardEmail.inputText, keyboardPassword.inputText))
   }
 
   const keyboardEmail = useKeyboard()
