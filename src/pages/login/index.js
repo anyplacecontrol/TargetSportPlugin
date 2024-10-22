@@ -36,9 +36,7 @@ export const Login = () => {
           text={keyboardPassword.inputText}
         />
       )}
-      <Layout
-        headerText={'Enter Your ACME Membership Credentials to Get Started'}
-      >
+      <Layout headerText={'Enter Your ACME Membership Credentials to Get Started'}>
         <ClickableCardsList>
           <SimpleCard>
             <FormField
@@ -72,7 +70,7 @@ export const Login = () => {
             />
           </SimpleCard>
 
-          <MembershipCard />
+          <MembershipCard style={{boxShadow: 'none'}} />
         </ClickableCardsList>
 
         <LeavePluginLink />
