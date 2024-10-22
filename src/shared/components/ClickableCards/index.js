@@ -13,7 +13,7 @@ export const ClickableCard = ({onClick, title, subtitle, img, useRightArrow, sty
         cursor: onClick ? 'pointer' : 'default'
       }}
     >
-      <span style={{width: '100%'}}>
+      <span className={`w-full`}>
         {title && (
           <div
             className={`font-50 `}
@@ -70,17 +70,30 @@ ClickableCard.propTypes = {
   style: PropTypes.object
 }
 
-export const SimpleCard = ({onClick, children, style}) => {
+export const SimpleCard = ({onClick, children}) => {
+  const RenderContent = () => {
+    const Comp = onClick ? `span` : `div`
+
+    return <Comp className={`col-sta-cen gap-v-2 w-full`}>{children}</Comp>
+  }
+
+  if (onClick)
+    return (
+      <button
+        className={`coupon cur-point`}
+        type={`button`}
+        onClick={onClick}
+      >
+        {RenderContent()}
+      </button>
+    )
+
   return (
     <div
       className={`coupon`}
-      onClick={onClick}
-      style={{
-        ...style,
-        cursor: onClick ? 'pointer' : 'default'
-      }}
+      style={{boxShadow: `none`}}
     >
-      <span style={{width: '100%'}}>{children}</span>
+      {RenderContent()}
     </div>
   )
 }
@@ -90,7 +103,7 @@ SimpleCard.propTypes = {
   children: PropTypes.node,
   style: PropTypes.object
 }
-//================================================
+
 export const ClickableCardsList = ({children}) => {
   return <div className={`coupons`}>{children}</div>
 }

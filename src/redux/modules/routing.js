@@ -1,5 +1,4 @@
 import * as c from '../../const'
-import * as u from '../../utils'
 import {push} from 'connected-react-router'
 import {BaseReducer} from '../../shared/redux/baseRedux'
 
@@ -46,8 +45,31 @@ export function goto_Back() {
 //*******************************************************************************
 //SERVICE FUNCTIONS
 
+export function parseQueryParams(query) {
+  try {
+    //You get a '?key=asdfghjkl1234567890&val=123&val2&val3=other'
+    const queryArray = query.split('?')[1].split('&')
+    let queryParams = {}
+    for (let i = 0; i < queryArray.length; i++) {
+      const [key, val] = queryArray[i].split('=')
+      queryParams[key] = val ? val : true
+    }
+    /* queryParams =
+        {
+         key:"asdfghjkl1234567890",
+         val:"123",
+         val2:true,
+         val3:"other"
+        }
+     */
+    return queryParams
+  } catch (error) {
+    return {}
+  }
+}
+
 export function parseBackPathParam(state) {
-  let params = u.parseQueryParams(state.router.location.search)
+  let params = parseQueryParams(state.router.location.search)
   if (!params) return null
 
   //check backPath

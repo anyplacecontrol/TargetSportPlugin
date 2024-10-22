@@ -2,20 +2,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {getBrandingStyle} from '../../utils/brandingStyles'
 import * as config from '../../../config'
+import {createClass} from '../../utils/sharedFunctions'
 
-export const InputField = ({inputText, onShowKeyboard, onInputChange, errorText, placeHolderText}) => {
-  const inputCls = `modal-input-text`
+export const InputField = (props) => {
+  const {type = `text`, inputText, onShowKeyboard, onInputChange, errorText, placeHolderText} = props
 
   return (
     <div className={`w-full gap-v-1`}>
       <input
         id={(Math.random() + 1).toString(36).substring(7)}
-        className={`${inputCls} ${!errorText ? `` : `is--error`}`}
+        className={createClass(`modal-input-text`, {'is--error': errorText})}
         style={{
-          ...getBrandingStyle('grayBorder'),
-          ...getBrandingStyle('blackText')
+          ...getBrandingStyle(`grayBorder`),
+          ...getBrandingStyle(`blackText`)
         }}
-        type="text"
+        type={type}
         placeholder={placeHolderText}
         value={inputText}
         onClick={() => {
@@ -25,7 +26,7 @@ export const InputField = ({inputText, onShowKeyboard, onInputChange, errorText,
           if (config.useAndroidKeyboard) onInputChange(event)
         }}
         readOnly={!config.useAndroidKeyboard}
-        autoComplete="new-password"
+        autoComplete={`new-password`}
       />
 
       {errorText && (
@@ -41,6 +42,7 @@ export const InputField = ({inputText, onShowKeyboard, onInputChange, errorText,
 }
 
 InputField.propTypes = {
+  type: PropTypes.string,
   inputText: PropTypes.string,
   onShowKeyboard: PropTypes.func,
   onInputChange: PropTypes.func,
