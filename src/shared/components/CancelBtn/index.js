@@ -42,5 +42,5 @@ CancelBtn.propTypes = {
   isIconBtn: PropTypes.bool,
   isTitleBtn: PropTypes.bool,
   text: PropTypes.string,
-  onClickHandler: PropTypes.func.isRequired
+  onClickHandler: PropTypes.func
 }

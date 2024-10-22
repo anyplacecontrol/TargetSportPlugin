@@ -5,9 +5,8 @@ import {ArrowRight} from '../../../svg'
 
 export const ClickableCard = ({onClick, title, subtitle, img, useRightArrow, style}) => {
   return (
-    <button
+    <div
       className={`coupon`}
-      type={`button`}
       onClick={onClick}
       style={{
         ...style,
@@ -58,12 +57,12 @@ export const ClickableCard = ({onClick, title, subtitle, img, useRightArrow, sty
           style={getBrandingStyle(`grayText`)}
         />
       )}
-    </button>
+    </div>
   )
 }
 
 ClickableCard.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   title: PropTypes.arrayOf(PropTypes.string),
   subtitle: PropTypes.arrayOf(PropTypes.string),
   img: PropTypes.any,
@@ -73,9 +72,8 @@ ClickableCard.propTypes = {
 
 export const SimpleCard = ({onClick, children, style}) => {
   return (
-    <button
+    <div
       className={`coupon`}
-      type={`button`}
       onClick={onClick}
       style={{
         ...style,
@@ -83,13 +81,13 @@ export const SimpleCard = ({onClick, children, style}) => {
       }}
     >
       <span style={{width: '100%'}}>{children}</span>
-    </button>
+    </div>
   )
 }
 
 SimpleCard.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired,
+  onClick: PropTypes.func,
+  children: PropTypes.node,
   style: PropTypes.object
 }
 //================================================

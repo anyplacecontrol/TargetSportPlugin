@@ -65,3 +65,14 @@ export const generateUUID = () => {
 export function toBool(val) {
   return Boolean(val || null)
 }
+//------------------------------------------------------------
+export function sendMessageToParent(command, payload) {
+  if (window.parent !== window) {
+    // Check if the application is inside an iframe
+    const message = {command, payload}
+    window.parent.postMessage(message, '*')
+    window.logger.info(`sendMessageToParent() was called with command: ${command}`)
+  } else {
+    window.logger.error('sendMessageToParent() was called, but the application is not inside an iframe')
+  }
+}
