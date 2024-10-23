@@ -10,6 +10,7 @@ import {ButtonsRender} from '../../shared/components/ButtonsRender'
 import {useDispatch} from 'react-redux'
 import * as membershipActions from '../../redux/modules/membership'
 import {FormField} from '../../components/Form/FormField'
+import {strings} from './strings'
 
 export const Login = () => {
   const dispatch = useDispatch()
@@ -36,21 +37,21 @@ export const Login = () => {
           text={keyboardPassword.inputText}
         />
       )}
-      <Layout headerText={'Enter Your ACME Membership Credentials to Get Started'}>
+      <Layout headerText={strings.loginPageHeader}>
         <ClickableCardsList>
           <SimpleCard>
             <FormField
-              label={`Email Address`}
-              placeHolderText={`Enter your email address`}
+              label={strings.emailAddress}
+              placeHolderText={strings.enterEmail}
               inputText={keyboardEmail.inputText}
               onInputChange={keyboardEmail.onInputChange}
               onShowKeyboard={keyboardEmail.onShowKeyboard}
               errorText={keyboardEmail.error}
             />
             <FormField
-              label={`Password`}
+              label={strings.password}
               type={c.FIELD_TYPE_PASSWORD}
-              placeHolderText={`Enter your password`}
+              placeHolderText={strings.enterPassword}
               inputText={keyboardPassword.inputText}
               onInputChange={keyboardPassword.onInputChange}
               onShowKeyboard={keyboardPassword.onShowKeyboard}
@@ -63,7 +64,7 @@ export const Login = () => {
                   onClick: () => {
                     onLoginClick()
                   },
-                  title: 'Submit',
+                  title: strings.submitButton,
                   theme: 'accentButton'
                 }
               ]}

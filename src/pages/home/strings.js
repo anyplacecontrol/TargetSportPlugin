@@ -3,34 +3,54 @@ import {STRINGS_AGGREGATOR} from '../../shared/utils/stringsAggregator'
 
 export const strings = new LocalizedStrings({
   en: {
-    touchToStart: 'Touch to Start'
+    pageHeader: 'ACME Members Get a xx% Discount!',
+    areYouMember: 'Are you an ACME Member?',
+    getDiscount: 'Sign in to get your xx% discount!'
   },
   es: {
-    touchToStart: 'Toque para iniciar'
+    pageHeader: '¡Los miembros de ACME obtienen un descuento del xx%!',
+    areYouMember: '¿Eres miembro de ACME?',
+    getDiscount: '¡Inicia sesión para obtener tu descuento del xx%!'
   },
   zh: {
-    touchToStart: '点击开始'
+    pageHeader: 'ACME会员享受xx%折扣',
+    areYouMember: '您是ACME会员吗？',
+    getDiscount: '登录以获取xx%的折扣！'
   },
   tl: {
-    touchToStart: 'Pindutin para Simulan'
+    pageHeader: 'Kumukuha ng xx% Diskwento ang mga Miyembro ng ACME!',
+    areYouMember: 'Ikaw ba ay Miyembro ng ACME?',
+    getDiscount: 'Mag-sign in upang makuha ang iyong xx% diskwento!'
   },
   vi: {
-    touchToStart: 'Chạm để bắt đầu'
+    pageHeader: 'Thành viên ACME nhận được giảm giá xx%!',
+    areYouMember: 'Bạn có phải là thành viên ACME không?',
+    getDiscount: 'Đăng nhập để nhận ưu đãi xx% của bạn!'
   },
   ar: {
-    touchToStart: 'المس للبدء'
+    pageHeader: 'يحصل أعضاء ACME على خصم xx%',
+    areYouMember: 'هل أنت عضو في ACME؟',
+    getDiscount: 'قم بتسجيل الدخول للحصول على خصم xx% الخاص بك!'
   },
   fr_ca: {
-    touchToStart: 'Appuyez pour commencer'
+    pageHeader: 'Les membres de ACME obtiennent un rabais de xx%',
+    areYouMember: 'Êtes-vous membre de ACME?',
+    getDiscount: 'Connectez-vous pour obtenir votre rabais de xx%!'
   },
   ko: {
-    touchToStart: '터치 투 스타트'
+    pageHeader: 'ACME 회원은 xx% 할인 혜택을 받습니다!',
+    areYouMember: 'ACME 회원이십니까?',
+    getDiscount: 'xx% 할인 혜택을 받으려면 로그인하세요!'
   },
   pt: {
-    touchToStart: 'Toque para iniciar'
+    pageHeader: 'Os membros da ACME obtêm um desconto de xx%',
+    areYouMember: 'Você é um membro da ACME?',
+    getDiscount: 'Faça login para obter seu desconto de xx%!'
   },
   ja: {
-    touchToStart: 'タッチして開始'
+    pageHeader: 'ACMEメンバーはxx％割引を受けます！',
+    areYouMember: 'ACMEのメンバーですか？',
+    getDiscount: 'xx％の割引を受けるにはログインしてください！'
   }
 })
 

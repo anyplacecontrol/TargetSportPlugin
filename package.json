@@ -2,6 +2,7 @@
   "name": "new-project",
   "version": "0.1.0",
   "description": "",
+  "homepage": "/target-sports",
   "engines": {
     "node": ">=9.0.0",
     "npm": ">=5.0.0",

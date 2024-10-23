@@ -6,18 +6,19 @@ import * as c from '../../const'
 import {useDispatch} from 'react-redux'
 import {goto_Path} from '../../redux/modules/routing'
 import {LeavePluginLink} from '../../components/LeavePluginLink'
+import {strings} from './strings'
 
 export const Home = () => {
   const dispatch = useDispatch()
   return (
-    <Layout headerText={'ACME Members Get a 10% Discount!'}>
+    <Layout headerText={strings.pageHeader.replace('xx', c.MEMBERSHIP_DISCOUNT)}>
       <ClickableCardsList>
         <ClickableCard
           onClick={() => {
             dispatch(goto_Path(c.LINK_LOGIN))
           }}
-          title={['Are you an ACME Member?']}
-          subtitle={[`Sign in to get your ${c.MEMBERSHIP_DISCOUNT}% discount!`]}
+          title={[strings.areYouMember]}
+          subtitle={[strings.getDiscount.replace('xx', c.MEMBERSHIP_DISCOUNT)]}
           useRightArrow={true}
           style={{boxShadow: 'none'}}
         />

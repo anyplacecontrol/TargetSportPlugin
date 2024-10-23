@@ -1,4 +1,6 @@
-import {BaseReducer} from '../../shared/redux/baseRedux'
+import {BaseReducer, changeField} from '../../shared/redux/baseRedux'
+import {SwitchLanguageToId} from '../../shared/utils/stringsAggregator'
+import * as config from '../../config'
 
 import {
   UI_PREFIX,
