@@ -32,9 +32,9 @@
     />
     <link
       rel="manifest"
-      href="/manifest.json"
+      href="<%= process.env.PUBLIC_URL %>/manifest.json"
     />
-
+    <base href="<%= process.env.PUBLIC_URL %>/">
     <title>AppleStone Plugin v<%= htmlWebpackPlugin.options.appVersion %></title>
   </head>
 

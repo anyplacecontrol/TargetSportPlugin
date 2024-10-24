@@ -1,12 +1,16 @@
 import {createStore, compose, applyMiddleware, combineReducers} from 'redux'
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant'
 import thunk from 'redux-thunk'
-import createHistory from 'history/createBrowserHistory'
+import { createBrowserHistory } from 'history'
 import {connectRouter, routerMiddleware} from 'connected-react-router'
 import reducers from './reducer'
 import {initialState} from './initialState'
 
-export const history = createHistory()
+const basename =  process.env.PUBLIC_URL ? `${process.env.PUBLIC_URL}` : undefined
+
+export const history = createBrowserHistory({
+  basename,
+})
 const connectRouterHistory = connectRouter(history)
 
 const rootReducer = combineReducers({...reducers, router: connectRouterHistory})

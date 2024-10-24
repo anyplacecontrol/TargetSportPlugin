@@ -25,7 +25,7 @@ export default {
   mode: 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    publicPath: '/target-sports/',
     filename: '[name].[contenthash].js'
   },
   plugins: [
@@ -124,7 +124,8 @@ export default {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]'
+              name: '[name].[ext]',
+              useRelativePaths: true
             }
           }
         ]
