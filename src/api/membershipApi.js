@@ -1,7 +1,7 @@
 import {isFakeAllData, REST_URL} from '../config'
 import {fetchJSON} from './fetchUtils'
 
-const membershipLogin_endPoint = REST_URL + `/login1`
+const membershipLogin_endPoint = REST_URL + `/login`
 
 const FAKE_MEMBERSHIP_NO_DISCOUNT = {
   success: true,
