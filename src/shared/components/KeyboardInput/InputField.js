@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {strings} from './strings'
 
-export const InputField = ({onCancelKeyboard, text, setText, inputRef}) => {
+export const InputField = ({isPassword, onCancelKeyboard, text, setText, inputRef}) => {
   return (
     <form className="search__form ">
       <button
@@ -12,9 +12,8 @@ export const InputField = ({onCancelKeyboard, text, setText, inputRef}) => {
       />
       <div className="search__form--inner relative w-full">
         <input
-          id="emailInput"
           className="search__form--input "
-          type="search"
+          type={isPassword ? `password` : `text`}
           placeholder={strings.PleaseTypeIn}
           onInput={(event) => {
             setText(event.target.value)
@@ -29,6 +28,7 @@ export const InputField = ({onCancelKeyboard, text, setText, inputRef}) => {
 }
 
 InputField.propTypes = {
+  isPassword: PropTypes.bool,
   inputRef: PropTypes.any,
   onCancelKeyboard: PropTypes.func.isRequired,
   text: PropTypes.string,

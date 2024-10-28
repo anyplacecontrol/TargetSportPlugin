@@ -35,6 +35,7 @@ export const Login = () => {
           onCancelKeyboard={keyboardPassword.onCancelKeyboard}
           onDoneClick={keyboardPassword.onDoneKeyboard}
           text={keyboardPassword.inputText}
+          isPassword
         />
       )}
       <Layout headerText={strings.loginPageHeader}>

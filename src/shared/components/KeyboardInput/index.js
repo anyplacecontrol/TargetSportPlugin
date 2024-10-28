@@ -5,13 +5,13 @@ import {InputField} from './InputField'
 import {KeyboardPanel} from './KeyboardPanel'
 import {ModalOverlay} from '../ModalOverlay'
 
-export const KeyboardInput = ({onCancelKeyboard, onDoneClick, text, isHandicappedMode}) => {
+export const KeyboardInput = ({isPassword, onCancelKeyboard, onDoneClick, text, isHandicappedMode}) => {
   const [textValue, setTextValue] = useState(text)
-  const [inputNode, setinputNode] = useState(null)
+  const [inputNode, setInputNode] = useState(null)
   const inputRef = useRef()
 
   useEffect(() => {
-    setinputNode(inputRef.current)
+    setInputNode(inputRef.current)
   }, [])
 
   return (
@@ -21,6 +21,7 @@ export const KeyboardInput = ({onCancelKeyboard, onDoneClick, text, isHandicappe
         text={textValue}
         setText={setTextValue}
         inputRef={inputRef}
+        isPassword={isPassword}
       />
 
       <KeyboardPanel
@@ -34,6 +35,7 @@ export const KeyboardInput = ({onCancelKeyboard, onDoneClick, text, isHandicappe
 }
 
 KeyboardInput.propTypes = {
+  isPassword: PropTypes.bool,
   isHandicappedMode: PropTypes.bool,
   onCancelKeyboard: PropTypes.func.isRequired,
   onDoneClick: PropTypes.func.isRequired, //argument is text
