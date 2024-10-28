@@ -7,33 +7,29 @@ export const KeyboardPanel = ({inputNode, onSubmitKeyboard}) => {
 
   if (!inputNode) return null
 
+  const KeyboardButtonRender = (str) => {
+    if (!str) return null
+
+    return (
+      <KeyboardButton
+        key={str}
+        onClick={() => onKeyboardButtonClick(str)}
+        value={str}
+      />
+    )
+  }
+
   return (
     <Keyboard
       inputNode={inputNode}
       layouts={[LatinLayout]}
       leftButtons={[
-        <KeyboardButton
-          key="_"
-          onClick={() => onKeyboardButtonClick('_')}
-          value="_"
-        />,
-        <KeyboardButton
-          key="-"
-          onClick={() => onKeyboardButtonClick('-')}
-          value="-"
-        />,
-        <KeyboardButton
-          key="."
-          onClick={() => onKeyboardButtonClick('.')}
-          value="."
-        />
+        KeyboardButtonRender(`_`),
+        KeyboardButtonRender(`-`),
+        KeyboardButtonRender(`.`),
       ]}
       rightButtons={[
-        <KeyboardButton
-          key="@"
-          onClick={() => onKeyboardButtonClick('@')}
-          value="@"
-        />,
+        KeyboardButtonRender(`@`),
         <KeyboardButton
           key=".com"
           onClick={() => onComClick()}
@@ -55,9 +51,6 @@ KeyboardPanel.propTypes = {
   inputNode: PropTypes.any
 }
 
-/**
- * Buttons Handlers
- */
 const useButtonsHandlers = (inputNode) => {
   return useMemo(() => {
     const onKeyboardButtonClick = (char) => {
@@ -65,9 +58,8 @@ const useButtonsHandlers = (inputNode) => {
       let selectionStart = inputNode.selectionStart
       let selectionEnd = inputNode.selectionEnd
 
-      let nextValue = value.substring(0, selectionStart) + char + value.substring(selectionEnd)
+      inputNode.value = value.substring(0, selectionStart) + char + value.substring(selectionEnd)
 
-      inputNode.value = nextValue
       setTimeout(function () {
         inputNode.focus()
         inputNode.setSelectionRange(selectionStart + 1, selectionStart + 1)
