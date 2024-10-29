@@ -60,20 +60,20 @@ export const FormField = (props) => {
         </div>
       )}
       <div className={`relative w-full`}>
-        <div
-          className={`w-full`}
-          style={isPassword ? {paddingRight: `6rem`} : {}}
-        >
-          <InputField
-            type={fieldType()}
-            inputText={inputText}
-            onInputChange={onInputChange}
-            onShowKeyboard={onShowKeyboard}
-            errorText={errorText}
-            placeHolderText={placeHolderText}
-          />
-          {RenderTogglePasswordBtn()}
-        </div>
+        <InputField
+          type={fieldType()}
+          inputText={inputText}
+          onInputChange={onInputChange}
+          onShowKeyboard={onShowKeyboard}
+          errorText={errorText}
+          placeHolderText={placeHolderText}
+          styles={
+            isPassword ? {
+              paddingRight: `6rem`
+            } : {}
+          }
+        />
+        {RenderTogglePasswordBtn()}
       </div>
     </div>
   )

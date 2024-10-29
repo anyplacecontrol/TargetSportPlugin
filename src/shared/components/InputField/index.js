@@ -5,7 +5,7 @@ import * as config from '../../../config'
 import {createClass} from '../../utils/sharedFunctions'
 
 export const InputField = (props) => {
-  const {type = `text`, inputText, onShowKeyboard, onInputChange, errorText, placeHolderText} = props
+  const {styles, type = `text`, inputText, onShowKeyboard, onInputChange, errorText, placeHolderText} = props
 
   return (
     <div className={`w-full gap-v-1`}>
@@ -13,6 +13,7 @@ export const InputField = (props) => {
         id={(Math.random() + 1).toString(36).substring(7)}
         className={createClass(`modal-input-text`, {'is--error': errorText})}
         style={{
+          ...styles,
           ...getBrandingStyle(`grayBorder`),
           ...getBrandingStyle(`blackText`)
         }}
@@ -42,6 +43,7 @@ export const InputField = (props) => {
 }
 
 InputField.propTypes = {
+  styles: PropTypes.object,
   type: PropTypes.string,
   inputText: PropTypes.string,
   onShowKeyboard: PropTypes.func,
