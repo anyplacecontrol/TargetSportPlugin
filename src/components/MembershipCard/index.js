@@ -8,7 +8,7 @@ export const MembershipCard = ({style}) => {
     <ClickableCard
       title={[strings.noMembership]}
       subtitle={[strings.scanToSignUp, strings.seeYouSoon]}
-      img={require(`../../assets/img/membership-qr.jpeg`)}
+      img={require(`../../assets/img/TargetSports_New_Member_QR_Code.png`)}
       style={style}
     />
   )
