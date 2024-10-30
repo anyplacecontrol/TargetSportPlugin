@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {getBrandingStyle} from '../../utils/brandingStyles'
 import {useTheme} from '../../hooks/useTheme'
+import * as u from '../../utils/sharedFunctions'
 
 export const MainTitle = ({isTextLeft, className: cls, style, children}) => {
   const {isDarkBackground} = useTheme()
@@ -9,11 +10,15 @@ export const MainTitle = ({isTextLeft, className: cls, style, children}) => {
   if (!children) return null
 
   const attr = {
-    className: `brand-h1 ${cls || ``} font-60 ${!isTextLeft ? `` : `--left`}`,
-    style: isDarkBackground ? getBrandingStyle(`whiteForeground`) : getBrandingStyle(`blackText`),
+    className: u.createClass(`brand-h1 font-60`, {'--left': isTextLeft}, cls),
+    style: {
+      ...style,
+      ...isDarkBackground
+        ? getBrandingStyle(`whiteForeground`)
+        : getBrandingStyle(`blackText`)
+    },
     children
   }
-  if (style) attr.style = style
 
   return <div {...attr} />
 }
