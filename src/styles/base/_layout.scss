@@ -1,6 +1,6 @@
 @use '../utils' as u;
 
-#root {@extend .col-sta-str, .w-full;min-height: 100dvh;}
+#root-iframe {@extend .col-sta-str, .flex-1, .w-full}
 #main {
   @extend .col-end-str, .bg-black, .over-hidden, .flex-1, .miw-content, .w-full;
   min-height: 480px;
