@@ -7,23 +7,19 @@ import {Breadcrumbs} from '../../shared/components/Breadcrumbs'
 
 // eslint-disable-next-line react/prop-types
 export const Layout = ({children, className, style, hideBreadcrumbs, breadcrumbsCls, headerText}) => {
-  const cls = className || `v2` //v3
   const {isDarkBackground} = useTheme()
 
   return (
     <ContentInner
       style={getBrandingStyle(isDarkBackground ? `darkestBackground` : `lightBackground`)}
     >
-      {!hideBreadcrumbs && (
-        <Breadcrumbs
-          className={breadcrumbsCls}
-          text={headerText}
-        />
-      )}
-      <MainBlock
-        className={cls}
-        style={style}
-      >
+      <Breadcrumbs
+        isHidden={hideBreadcrumbs}
+        className={breadcrumbsCls}
+        text={headerText}
+      />
+
+      <MainBlock className={className || `v2`} style={style}>
         {children}
       </MainBlock>
     </ContentInner>

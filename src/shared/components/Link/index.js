@@ -1,15 +1,24 @@
 import React from 'react'
-import {getBrandingStyle} from '../../utils/brandingStyles'
 import PropTypes from 'prop-types'
-const getCursorStyle = (onClick) => {
-  return onClick ? {cursor: 'pointer'} : {cursor: 'default'}
-}
+import * as u from '../../utils/sharedFunctions'
+import {getBrandingStyle} from '../../utils/brandingStyles'
 
-export const Link = ({style, onClick, text, isCenter, isBig}) => {
+export const Link = ({withDecoration, style, onClick, text, isCenter, isBig}) => {
+  const cls = u.createClass(
+    ``,
+    {
+      'cur-pointer': onClick,
+      'font-40': isBig,
+      'font-30': !isBig,
+      'text-center': isCenter,
+      'dec-under': withDecoration,
+    }
+  )
+
   return (
     <div
-      className={`${isBig ? 'font-40' : 'font-30'} ${isCenter ? 'text-center' : ''} `}
-      style={{...getBrandingStyle('secondaryText'), ...getCursorStyle(onClick), ...style}}
+      className={cls}
+      style={{...style, ...getBrandingStyle(`secondaryText`)}}
       onClick={onClick}
     >
       {text}
@@ -18,6 +27,7 @@ export const Link = ({style, onClick, text, isCenter, isBig}) => {
 }
 
 Link.propTypes = {
+  withDecoration: PropTypes.bool,
   style: PropTypes.object,
   onClick: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,

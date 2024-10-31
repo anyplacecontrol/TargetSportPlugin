@@ -39,8 +39,8 @@ export const Login = () => {
         />
       )}
       <Layout headerText={strings.loginPageHeader}>
-        <ClickableCardsList>
-          <SimpleCard>
+        <ClickableCardsList noPadBottom bigGap>
+          <SimpleCard bigGap>
             <FormField
               label={strings.emailAddress}
               placeHolderText={strings.enterEmail}
@@ -62,9 +62,7 @@ export const Login = () => {
               isVertical
               buttons={[
                 {
-                  onClick: () => {
-                    onLoginClick()
-                  },
+                  onClick: () => {onLoginClick()},
                   title: strings.submitButton,
                   theme: 'accentButton'
                 }
@@ -72,7 +70,7 @@ export const Login = () => {
             />
           </SimpleCard>
 
-          <MembershipCard style={{boxShadow: 'none'}} />
+          <MembershipCard />
         </ClickableCardsList>
 
         <LeavePluginLink />

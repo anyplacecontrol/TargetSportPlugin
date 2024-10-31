@@ -27,13 +27,13 @@
 }
 .modal-body {
   @extend %w-full, %gap-v-std;
-  
+
   &.--new-type {
     .modal-attr-button {@include u.mih(6.5)}
   }
-  
+
   &.--std {@extend %relative}
-  
+
   &.--alert {
     @extend %text-center;
 
@@ -47,14 +47,14 @@
 
 %modal-info-typography {
   @extend %font-h4, %line-h-1x3, %text-center, %wei-regular, %ow-word;
-  
+
   &.--is-long-error {@extend %wb-all}
 }
 
 .modal-info {@extend %col-sta-sta, %w-full, %gap-v-2}
 .modal-info-scroll {
   @extend %col-sta-sta, %w-full, %gap-v-1;
-  
+
   &.--std {}
   &.--with-scroll {
     @extend %vertical-scroll, %over-y-auto;
@@ -85,7 +85,7 @@
 }
 .modal-content-scroll-inner {
   @extend %col-sta-cen, %w-full, %gap-v-2;
-  
+
   .product-image-box {@extend %maw-col-6}
 }
 .modal-content-main {@extend %col-sta-cen, %gap-v-0x5}
@@ -98,10 +98,10 @@
 .modal-content-box-children {@extend %col-sta-sta, %w-full}
 .modal-content-item {
   @include u.gap-v(2);
-  
+
   &.--std {@extend %col-sta-sta, %w-full}
   &.--info {@include u.maw-col(5.25);@include u.miw-col(5.25)}
-  
+
   &.--start {@extend %col-sta-sta}
   &.--between {@extend %col-bet-sta}
   &.--end {@extend %col-end-sta}
@@ -146,17 +146,16 @@
 .modal-available-title {}
 .modal-available-count {}
 
-.modal-input-text,
-.modal-input-text-area {@extend %form-input, %fg-pale, %round-std-x3, %shad-inset}
 .modal-input-text-area {
-  height: 120px;
-  padding: 10px;
+  @extend %form-input, %fg-pale, %round-std-x2;
+  @include u.pad-h(7.5);
+  @include u.pad(0.75);
 }
 
 .btn-toggle {
   @extend %col-cen-cen, %bg-transparent, %circle, %anim;
   @include u.sqr(2.5);
-  
+
   .feather {@extend %img-size-std}
 }
 
@@ -197,7 +196,7 @@
 
   .modal-info-scroll {max-height: 14vh}
   .modal-attr-button {@include u.h(3)}
-  
+
   .modal-alert-info {@include modal-info-width-h}
   .modal-content-item {
     &.--info {

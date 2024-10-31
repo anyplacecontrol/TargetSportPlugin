@@ -4,3 +4,4 @@ const params = new URLSearchParams(window.location.search)
 export const language = params.get('lng') || 'en'
 
 export const REST_URL = `https://integrations.betaadmin.com/target-sports`
+export const useAndroidKeyboard = false

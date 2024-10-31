@@ -4,15 +4,15 @@
 %bg-current-color,
 .bg-current-color     {background-color: currentColor}
 %bg-black,
-.bg-black             {background-color: var(--def-col-black)}
+.bg-black             {background-color: var(--col-black)}
 %bg-white,
-.bg-white             {background-color: var(--def-col-white)}
+.bg-white             {background-color: var(--col-white)}
 %bg-error,
-.bg-error             {background-color: var(--def-col-error)}
+.bg-error             {background-color: var(--col-error)}
 %bg-error-light,
 .bg-error-light       {background-color: #DF7D83}
 %bg-success,
-.bg-success           {background-color: var(--def-col-success)}
+.bg-success           {background-color: var(--col-success)}
 %bg-success-light,
 .bg-success-light     {background-color: #81D175}
 %bg-overlay,
@@ -28,11 +28,11 @@
 
 //Foreground
 %fg-black,
-.fg-black             {color: var(--def-col-black)}
+.fg-black             {color: var(--col-black)}
 %fg-white,
-.fg-white             {color: var(--def-col-white)}
+.fg-white             {color: var(--col-white)}
 %fg-error,
-.fg-error             {color: var(--def-col-error)}
+.fg-error             {color: var(--col-error)}
 %fg-primary,
 .fg-primary           {color: var(--col-secondary)}
 %fg-pale,

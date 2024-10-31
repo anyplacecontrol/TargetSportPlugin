@@ -44,7 +44,11 @@ export const InputField = ({isPassword, onCancelKeyboard, text, setText, inputRe
 
   return (
     <div
-      className={`modal-keyboard`}
+      className={`relative`}
+      style={{
+        marginTop: `65%`,
+        marginBottom: `5vh`
+      }}
     >
       <input
         className={u.createClass(`modal-keyboard-input`, {'--with-eye': isPassword})}
@@ -58,10 +62,12 @@ export const InputField = ({isPassword, onCancelKeyboard, text, setText, inputRe
         readOnly
       />
       <button
-        className={`modal-keyboard-cancel abs-b-r`}
+        className={`bg-transparent fg-white abs-r abs-center-y sqr-1x5`}
         type={`button`}
         onClick={onCancelKeyboard}
-      />
+      >
+        <s.Cancel className={`full-sz`} />
+      </button>
       {RenderTogglePasswordBtn()}
     </div>
   )

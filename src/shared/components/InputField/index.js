@@ -5,13 +5,19 @@ import * as config from '../../../config'
 import {createClass} from '../../utils/sharedFunctions'
 
 export const InputField = (props) => {
-  const {styles, type = `text`, inputText, onShowKeyboard, onInputChange, errorText, placeHolderText} = props
+  const {noRound, styles, type = `text`, inputText, onShowKeyboard, onInputChange, errorText, placeHolderText} = props
 
   return (
     <div className={`w-full gap-v-1`}>
       <input
         id={(Math.random() + 1).toString(36).substring(7)}
-        className={createClass(`modal-input-text`, {'is--error': errorText})}
+        className={createClass(
+          `form-input`,
+          {
+            'is--error': errorText,
+            'round-std-x2': !noRound
+          }
+        )}
         style={{
           ...styles,
           ...getBrandingStyle(`grayBorder`),
@@ -43,6 +49,7 @@ export const InputField = (props) => {
 }
 
 InputField.propTypes = {
+  noRound: PropTypes.bool,
   styles: PropTypes.object,
   type: PropTypes.string,
   inputText: PropTypes.string,

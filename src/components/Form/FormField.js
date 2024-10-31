@@ -67,6 +67,7 @@ export const FormField = (props) => {
           onShowKeyboard={onShowKeyboard}
           errorText={errorText}
           placeHolderText={placeHolderText}
+          noRound
           styles={
             isPassword ? {
               paddingRight: `6rem`

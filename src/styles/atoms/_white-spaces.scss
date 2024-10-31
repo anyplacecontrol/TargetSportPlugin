@@ -7,8 +7,14 @@
 .pad-h-0x25,    %pad-h-0x25      {@include u.pad-h(0.25)}
 .pad-h-0x5,     %pad-h-0x5       {@include u.pad-h(0.5)}
 .pad-h-1,       %pad-h-1         {@include u.pad-h(1)}
+.pad-h-1x5,     %pad-h-1x5       {@include u.pad-h(1.5)}
+.pad-h-2x5,     %pad-h-2x5       {@include u.pad-h(2.5)}
 .pad-v-1,       %pad-v-1         {@include u.pad-v(1)}
+.pad-v-1x5,     %pad-v-1x5       {@include u.pad-v(1.5)}
 .pad-v-2,       %pad-v-2         {@include u.pad-v(2)}
+.pad-v-3,       %pad-v-3         {@include u.pad-v(3)}
+.pad-b-1x5,     %pad-b-1x5       {@include u.pad-b(1.5)}
+.pad-l-0x5,     %pad-l-0x5       {@include u.pad-l(0.5)}
 
 .gap-v-0x25,    %gap-v-0x25      {@include u.gap-v(0.25)}
 .gap-v-0x5,     %gap-v-0x5       {@include u.gap-v(0.5)}
@@ -19,7 +25,6 @@
 .gap-h-1,       %gap-h-1         {@include u.gap-h(1)}
 .gap-h-2,       %gap-h-2         {@include u.gap-h(2)}
 
-// Standards
 .gap-v-std-big, %gap-v-std-big   {@include u.gap-v(5.5)}
 .gap-v-std,     %gap-v-std       {@include u.gap-v(3.5)}
 .pad-std,       %pad-std         {@include u.pad(2.75)}
