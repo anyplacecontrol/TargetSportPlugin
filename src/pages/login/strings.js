@@ -3,7 +3,7 @@ import {STRINGS_AGGREGATOR} from '../../shared/utils/stringsAggregator'
 
 export const strings = new LocalizedStrings({
   en: {
-    loginPageHeader: 'Enter Your ACME Membership Credentials to Get Started',
+    loginPageHeader: 'Enter Your Target Sports USA Membership Credentials to Get Started',
     emailAddress: 'Email Address',
     enterEmail: 'Enter your email address',
     password: 'Password',
@@ -11,7 +11,7 @@ export const strings = new LocalizedStrings({
     submitButton: 'Submit'
   },
   es: {
-    loginPageHeader: 'Ingrese sus credenciales de membresía de ACME para comenzar',
+    loginPageHeader: 'Ingrese sus credenciales de membresía de Target Sports USA para comenzar',
     emailAddress: 'Dirección de correo electrónico',
     enterEmail: 'Ingrese su dirección de correo electrónico',
     password: 'Contraseña',
@@ -19,7 +19,7 @@ export const strings = new LocalizedStrings({
     submitButton: 'Enviar'
   },
   zh: {
-    loginPageHeader: '输入您的ACME会员凭据以开始',
+    loginPageHeader: '输入您的Target Sports USA会员凭据以开始',
     emailAddress: '电子邮件地址',
     enterEmail: '输入您的电子邮件地址',
     password: '密码',
@@ -27,7 +27,7 @@ export const strings = new LocalizedStrings({
     submitButton: '提交'
   },
   tl: {
-    loginPageHeader: 'Maglagay ng iyong ACME Membership Credentials upang Magsimula',
+    loginPageHeader: 'Maglagay ng iyong Target Sports USA Membership Credentials upang Magsimula',
     emailAddress: 'Email Address',
     enterEmail: 'Maglagay ng iyong email address',
     password: 'Password',
@@ -35,7 +35,7 @@ export const strings = new LocalizedStrings({
     submitButton: 'Ipasa'
   },
   vi: {
-    loginPageHeader: 'Nhập thông tin đăng nhập thành viên ACME của bạn để bắt đầu',
+    loginPageHeader: 'Nhập thông tin đăng nhập thành viên Target Sports USA của bạn để bắt đầu',
     emailAddress: 'Địa chỉ email',
     enterEmail: 'Nhập địa chỉ email của bạn',
     password: 'Mật khẩu',
@@ -43,7 +43,7 @@ export const strings = new LocalizedStrings({
     submitButton: 'Gửi'
   },
   ar: {
-    loginPageHeader: 'أدخل بيانات اعتماد عضوية ACME الخاصة بك للبدء',
+    loginPageHeader: 'أدخل بيانات اعتماد عضوية Target Sports USA الخاصة بك للبدء',
     emailAddress: 'عنوان البريد الإلكتروني',
     enterEmail: 'أدخل عنوان بريدك الإلكتروني',
     password: 'كلمة المرور',
@@ -51,7 +51,7 @@ export const strings = new LocalizedStrings({
     submitButton: 'إرسال'
   },
   fr_ca: {
-    loginPageHeader: "Entrez vos identifiants d'adhésion ACME pour commencer",
+    loginPageHeader: "Entrez vos identifiants d'adhésion Target Sports USA pour commencer",
     emailAddress: 'Adresse e-mail',
     enterEmail: 'Entrez votre adresse e-mail',
     password: 'Mot de passe',
@@ -59,7 +59,7 @@ export const strings = new LocalizedStrings({
     submitButton: 'Soumettre'
   },
   ko: {
-    loginPageHeader: '시작하려면 ACME 회원 자격 증명을 입력하십시오',
+    loginPageHeader: '시작하려면 Target Sports USA 회원 자격 증명을 입력하십시오',
     emailAddress: '이메일 주소',
     enterEmail: '이메일 주소를 입력하십시오',
     password: '암호',
@@ -67,7 +67,7 @@ export const strings = new LocalizedStrings({
     submitButton: '제출'
   },
   pt: {
-    loginPageHeader: 'Insira suas credenciais de associação ACME para começar',
+    loginPageHeader: 'Insira suas credenciais de associação Target Sports USA para começar',
     emailAddress: 'Endereço de e-mail',
     enterEmail: 'Insira seu endereço de e-mail',
     password: 'Senha',
@@ -75,7 +75,7 @@ export const strings = new LocalizedStrings({
     submitButton: 'Enviar'
   },
   ja: {
-    loginPageHeader: '開始するにはACME会員資格情報を入力してください',
+    loginPageHeader: '開始するにはTarget Sports USA会員資格情報を入力してください',
     emailAddress: 'メールアドレス',
     enterEmail: 'メールアドレスを入力してください',
     password: 'パスワード',
