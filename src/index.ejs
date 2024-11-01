@@ -34,16 +34,13 @@
       rel="manifest"
       href="<%= process.env.PUBLIC_URL %>/manifest.json"
     />
-    <base href="<%= process.env.PUBLIC_URL %>/">
+    <base href="<%= process.env.PUBLIC_URL %>/" />
     <title>AppleStone Plugin v<%= htmlWebpackPlugin.options.appVersion %></title>
   </head>
 
   <body>
     <div id="root-iframe">
-      <div
-        id="main"
-        onClick="window.lastClick = new Date().getTime()"
-      ></div>
+      <div id="main"></div>
     </div>
   </body>
 </html>

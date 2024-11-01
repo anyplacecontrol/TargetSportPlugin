@@ -7,6 +7,8 @@ import './assets/css/main.css'
 import {render} from 'react-dom'
 import configureStore, {history} from './redux/configureStore'
 import {ErrorBoundary} from './shared/components/ErrorBoundary'
+import {sendMessageToParent} from './shared/utils/sharedFunctions'
+import {CMD_CLICK} from './shared/const/pluginCommands'
 
 function noselect() {
   return false
@@ -18,6 +20,10 @@ document.oncontextmenu = noselect
 window.logger = u.logger
 
 export const store = configureStore()
+
+window.addEventListener('click', () => {
+  sendMessageToParent(CMD_CLICK)
+})
 
 render(
   <ErrorBoundary>

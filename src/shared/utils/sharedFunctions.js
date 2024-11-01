@@ -1,3 +1,5 @@
+import {CMD_CLICK} from '../const/pluginCommands'
+
 // Usage: createClass(`block-set-item`, {'--col': isCol}, cls)
 export function createClass(baseClass, conditions = {}, addCls = ``) {
   function isObjectNotEmpty(obj) {
@@ -71,8 +73,9 @@ export function sendMessageToParent(command, payload) {
     // Check if the application is inside an iframe
     const message = {command, payload}
     window.parent.postMessage(message, '*')
-    window.logger.info(`sendMessageToParent() was called with command: ${command}`)
+    if (command != CMD_CLICK) window.logger.info(`sendMessageToParent() was called with command: ${command}`)
   } else {
-    window.logger.error('sendMessageToParent() was called, but the application is not inside an iframe')
+    if (command != CMD_CLICK)
+      window.logger.error('sendMessageToParent() was called, but the application is not inside an iframe')
   }
 }
