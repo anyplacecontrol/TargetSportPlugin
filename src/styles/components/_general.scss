@@ -121,8 +121,8 @@
 .loading-inner {
   @extend %circle, %relative, %z-index-1;
   @include u.brd(_, transparent, 12px);
-  @include u.brd(t, var(--def-col-white), 12px);
-  @include u.brd(b, var(--def-col-white), 12px);
+  @include u.brd(t, var(--col-white), 12px);
+  @include u.brd(b, var(--col-white), 12px);
   @include u.sqr(12.5);
   animation: lds-dual-ring 1.2s linear infinite;
 }
@@ -141,7 +141,7 @@
 .iframe-box {
   @extend %w-full;
   @include u.h-vh(21.5);
-  
+
   iframe {
     @extend %full-sz;
     border: none;
@@ -149,7 +149,7 @@
 }
 .--with-cover {
   @extend %relative;
-  
+
   @include u.after {@extend %bg-transparent, %abs-fit, %z-index-1}
 }
 
@@ -196,7 +196,7 @@
 .bundle-banner-close-icon {
   @extend %col-cen-cen, %circle;
   @include u.sqr(2.5);
-  
+
   .feather {@extend %img-size-std}
 }
 @include u.media-handicapped {

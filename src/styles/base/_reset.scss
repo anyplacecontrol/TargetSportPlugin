@@ -2,11 +2,11 @@
 @use '../utils' as u;
 
 :root {
-  --def-col-black:          #000000;
-  --def-col-white:          #FFFFFF;
-  --def-col-warning:        #FFFF00;
-  --def-col-error:          #BA3E46;
-  --def-col-success:        #47A838;
+  --col-black:              #000000;
+  --col-white:              #FFFFFF;
+  --col-warning:            #FFFF00;
+  --col-error:              #BA3E46;
+  --col-success:            #47A838;
 
   // Project Theme
   --col-overlay:            rgba(38, 50, 66, 0.95);
@@ -105,8 +105,8 @@ dfn {
 }
 
 mark {
-  background-color: var(--def-col-warning);
-  color: var(--def-col-black);
+  background-color: var(--col-warning);
+  color: var(--col-black);
 }
 
 small {

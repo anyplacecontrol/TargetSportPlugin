@@ -1,41 +1,37 @@
 @use '../utils' as u;
 
-// Max Width
 .maw-content, %maw-content    {max-width: var(--max-width)}
 .maw-full,    %maw-full       {max-width: 100%}
 
-// Min Width
 .miw-content, %miw-content    {min-width: var(--min-width)}
 .miw-full,    %miw-full       {min-width: 100%}
 
-// Width
 .w-0,         %w-0            {@include u.w(0)}
 .w-auto,      %w-auto         {@include u.w-auto}
 .w-full,      %w-full         {@include u.w-full}
 
-// Max Height
 .mah-100p,    %mah-100p       {max-height: 100%}
 .mah-100vh,   %mah-100vh      {max-height: 100vh}
 
-// Min Height
 .mih-100vh,   %mih-100vh      {min-height: 100vh}
 
-// Height
 .h-0,         %h-0            {@include u.h(0)}
 .h-auto,      %h-auto         {height: auto}
 .h-100p,      %h-100p         {height: 100%}
 .h-100vh,     %h-100vh        {height: 100vh}
 
-// Full Size
 .full-sz-max, %full-sz-max  {@extend %maw-full, %mah-100p}
 .full-auto,   %full-auto    {@extend %w-auto, %h-auto}
 .full-sz,     %full-sz      {@extend %w-full, %h-100p}
 .full-sz-0,   %full-sz-0    {@extend %w-0, %h-0}
 
-// Maw Miw Cols
 .maw-col-2, %maw-col-2 {@include u.maw-col(2)}
 .maw-col-4, %maw-col-4 {@include u.maw-col(4)}
 .maw-col-6, %maw-col-6 {@include u.maw-col(6)}
 .maw-col-7, %maw-col-7 {@include u.maw-col(7)}
 .maw-col-8, %maw-col-8 {@include u.maw-col(8)}
 .miw-col-2, %miw-col-2 {@include u.miw-col(2)}
+
+.sqr-1x5,  %sqr-1x5  {@include u.sqr(1.5)}
+.sqr-2x5,  %sqr-2x5  {@include u.sqr(2.5)}
+.sqr-3x75, %sqr-3x75 {@include u.sqr(3.75)}

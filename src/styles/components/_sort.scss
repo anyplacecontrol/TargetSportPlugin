@@ -42,8 +42,8 @@
   &:not(:first-child) {border-top: solid 3px var(--col-pale)}
   &.--active {
     background-color: var(--col-pale);
-    color: var(--def-col-white);
-    border-color: var(--def-col-white);
+    color: var(--col-white);
+    border-color: var(--col-white);
     box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.15);
   }
 }

@@ -13,13 +13,13 @@
 
 // New Input
 %form-field-theme {
-  @extend %bg-white, %brd-transparent-2, %round-std-x3, %shad-inset;
+  @extend %bg-white, %brd-transparent-2;
 
-  @include u.focus {@extend %brd-transparent-2, %shad-none}
+  @include u.focus {@extend %brd-transparent-2}
 
   &.is--error {
-    color: var(--def-col-error) !important;
-    border-color: var(--def-col-error) !important;
+    color: var(--col-error) !important;
+    border-color: var(--col-error) !important;
   }
 }
 %form-field-size {
