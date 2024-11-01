@@ -1,0 +1,20 @@
+export const PLUGIN_COLORS = {
+  accentBackground: '#315669',
+  accentForeground: '#315669',
+  additionalBackground: '#CE202E',
+  blackText: '#28373E',
+  cancelText: '#CE202E',
+  categoryBorder: '#315669',
+  darkBackground: '#666666',
+  darkestBackground: '#28373E',
+  grayBackground: '#999999',
+  grayText: '#999999',
+  headerBackground: '#315669',
+  infoIconForeground: '#ffffff',
+  lightBackground: '#f5f5f5',
+  lightestBackground: '#ffffff',
+  priceText: '#315669',
+  primaryBackground: '#CE202E',
+  secondaryText: '#CE202E',
+  whiteForeground: '#ffffff'
+}

@@ -1,4 +1,4 @@
-export const DEFAULT_COLORS = {
+export let DEFAULT_COLORS = {
   headerBackground: '#f96502',
   darkestBackground: '#333333',
   darkBackground: '#666666',

@@ -9,6 +9,8 @@ import configureStore, {history} from './redux/configureStore'
 import {ErrorBoundary} from './shared/components/ErrorBoundary'
 import {sendMessageToParent} from './shared/utils/sharedFunctions'
 import {CMD_CLICK} from './shared/const/pluginCommands'
+import {PLUGIN_COLORS} from './const/colors'
+import {DEFAULT_COLORS} from './shared/const/defaultColors'
 
 function noselect() {
   return false
@@ -24,6 +26,8 @@ export const store = configureStore()
 window.addEventListener('click', () => {
   sendMessageToParent(CMD_CLICK)
 })
+
+Object.assign(DEFAULT_COLORS, PLUGIN_COLORS)
 
 render(
   <ErrorBoundary>
