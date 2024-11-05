@@ -11,6 +11,7 @@ import {useDispatch} from 'react-redux'
 import * as membershipActions from '../../redux/modules/membership'
 import {FormField} from '../../components/Form/FormField'
 import {strings} from './strings'
+import {Link} from '../../shared/components/Link'
 
 export const Login = () => {
   const dispatch = useDispatch()
@@ -39,7 +40,10 @@ export const Login = () => {
         />
       )}
       <Layout headerText={strings.loginPageHeader}>
-        <ClickableCardsList noPadBottom bigGap>
+        <ClickableCardsList
+          noPadBottom
+          bigGap
+        >
           <SimpleCard bigGap>
             <FormField
               label={strings.emailAddress}
@@ -58,11 +62,18 @@ export const Login = () => {
               onShowKeyboard={keyboardPassword.onShowKeyboard}
               errorText={keyboardPassword.error}
             />
+            <Link
+              text="Forgot password?"
+              withDecoration
+              onClick={() => {}}
+            />
             <ButtonsRender
               isVertical
               buttons={[
                 {
-                  onClick: () => {onLoginClick()},
+                  onClick: () => {
+                    onLoginClick()
+                  },
                   title: strings.submitButton,
                   theme: 'accentButton'
                 }
