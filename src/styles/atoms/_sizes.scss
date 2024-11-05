@@ -20,18 +20,18 @@
 .h-100p,      %h-100p         {height: 100%}
 .h-100vh,     %h-100vh        {height: 100vh}
 
-.full-sz-max, %full-sz-max  {@extend %maw-full, %mah-100p}
-.full-auto,   %full-auto    {@extend %w-auto, %h-auto}
-.full-sz,     %full-sz      {@extend %w-full, %h-100p}
-.full-sz-0,   %full-sz-0    {@extend %w-0, %h-0}
+.full-sz-max, %full-sz-max    {@extend %maw-full, %mah-100p}
+.full-auto,   %full-auto      {@extend %w-auto, %h-auto}
+.full-sz,     %full-sz        {@extend %w-full, %h-100p}
+.full-sz-0,   %full-sz-0      {@extend %w-0, %h-0}
 
-.maw-col-2, %maw-col-2 {@include u.maw-col(2)}
-.maw-col-4, %maw-col-4 {@include u.maw-col(4)}
-.maw-col-6, %maw-col-6 {@include u.maw-col(6)}
-.maw-col-7, %maw-col-7 {@include u.maw-col(7)}
-.maw-col-8, %maw-col-8 {@include u.maw-col(8)}
-.miw-col-2, %miw-col-2 {@include u.miw-col(2)}
+.maw-col-2,   %maw-col-2      {@include u.maw-col(2)}
+.maw-col-4,   %maw-col-4      {@include u.maw-col(4)}
+.maw-col-6,   %maw-col-6      {@include u.maw-col(6)}
+.maw-col-7,   %maw-col-7      {@include u.maw-col(7)}
+.maw-col-8,   %maw-col-8      {@include u.maw-col(8)}
+.miw-col-2,   %miw-col-2      {@include u.miw-col(2)}
 
-.sqr-1x5,  %sqr-1x5  {@include u.sqr(1.5)}
-.sqr-2x5,  %sqr-2x5  {@include u.sqr(2.5)}
-.sqr-3x75, %sqr-3x75 {@include u.sqr(3.75)}
+.sqr-1x5,     %sqr-1x5        {@include u.sqr(1.5)}
+.sqr-2x5,     %sqr-2x5        {@include u.sqr(2.5)}
+.sqr-3x75,    %sqr-3x75       {@include u.sqr(3.75)}

@@ -3,15 +3,16 @@ import PropTypes from 'prop-types'
 import * as u from '../../utils/sharedFunctions'
 import {getBrandingStyle} from '../../utils/brandingStyles'
 
-export const Link = ({withDecoration, style, onClick, text, isCenter, isBig}) => {
+export const Link = ({posCenter, withDecoration, style, onClick, text, isCenter, isBig}) => {
   const cls = u.createClass(
-    ``,
+    `maw-full`,
     {
-      'cur-pointer': onClick,
+      'cur-point': onClick,
       'font-40': isBig,
       'font-30': !isBig,
       'text-center': isCenter,
       'dec-under': withDecoration,
+      'cen-by-mar': posCenter,
     }
   )
 
@@ -27,6 +28,7 @@ export const Link = ({withDecoration, style, onClick, text, isCenter, isBig}) =>
 }
 
 Link.propTypes = {
+  posCenter: PropTypes.bool,
   withDecoration: PropTypes.bool,
   style: PropTypes.object,
   onClick: PropTypes.func.isRequired,
