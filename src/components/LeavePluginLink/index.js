@@ -14,6 +14,7 @@ export const LeavePluginLink = () => {
       isBig
       isCenter
       withDecoration
+      posCenter
     />
   )
 }
