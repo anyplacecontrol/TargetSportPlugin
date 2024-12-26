@@ -69,7 +69,7 @@ export async function baseFetchJSON(url, init = {}, headers = null, timeout = 30
       json = await response.json()
       return json
     } catch (e) {
-      if (e.message === 'Unexpected end of JSON input') return ''
+      if (e.message.includes('Unexpected end of JSON input')) return ''
       else throw e
     }
   } catch (error) {

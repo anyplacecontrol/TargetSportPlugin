@@ -179,5 +179,4 @@ SimpleCard.propTypes = {
   bigGap: PropTypes.bool,
   onClick: PropTypes.func,
   children: PropTypes.node,
-  style: PropTypes.object
 }

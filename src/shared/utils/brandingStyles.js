@@ -1,8 +1,8 @@
 import {DEFAULT_COLORS} from '../const/defaultColors'
 
 function getColorOrDefault(colorName) {
-  if (!window.branding?.colors || !window.branding.colors[colorName]) return DEFAULT_COLORS[colorName]
-  else return window.branding.colors[colorName]
+  if (!window.branding?.data?.colors || !window.branding.data?.colors[colorName]) return DEFAULT_COLORS[colorName]
+  else return window.branding.data.colors[colorName]
 }
 
 export function getBrandingStyle(styleName) {
